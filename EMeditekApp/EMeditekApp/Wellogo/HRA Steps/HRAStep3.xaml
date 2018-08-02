@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HRA_Steps.HRAStep3"  Title="Family History"
+              xmlns:controls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#fff">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <ScrollView>
+                    <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                        <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                            <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                            <StackLayout>
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Obesity" TextColor="Black"></Label>
+                                    <!--<controls:RadioGroup x:Name="rad1" ItemsSource="{Binding lst}"  Orientation="Horizontal" HorizontalOptions="FillAndExpand"  >
+                                    </controls:RadioGroup>-->
+                                    <Picker x:Name="pkrObesity" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}">
+                                    </Picker>
+                                    <Label FontSize="Micro" Text="The Obesity field is required" TextColor="Red" Margin="0" x:Name="lblObesity" IsVisible="False"></Label>
+                                </StackLayout>
+                                
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="High Blood Pressure" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrhighbloodpressure" Title="Select" ItemDisplayBinding="{Binding Name}"  ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}"></Picker>
+                                    <Label FontSize="Micro" Text="The Blood pressure field is required" TextColor="Red" Margin="0" x:Name="lblBP" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="High Cholestrol" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrHighCholestrol" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}" ></Picker>
+                                    <Label FontSize="Micro" Text="The cholestrol field is required" TextColor="Red" Margin="0" x:Name="lblCholestrol" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Heart Attack" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrHeartAttack" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}"></Picker>
+                                    <Label FontSize="Micro" Text="The Heart Attack field is required" TextColor="Red" Margin="0" x:Name="lblHeartAttack" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Diabetes" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrDiabetes" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}"></Picker>
+                                    <Label FontSize="Micro" Text="The Diabetes field is required" TextColor="Red" Margin="0" x:Name="lbldiebaties" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Stroke" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrStroke" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}" ></Picker>
+                                    <Label FontSize="Micro" Text="The Stroke field is required" TextColor="Red" Margin="0" x:Name="lblStroke" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Cancer" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrCancer" Title="Select" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}"></Picker>
+                                    <Label FontSize="Micro" Text="The Cancer field is required" TextColor="Red" Margin="0" x:Name="lblcancer" IsVisible="False"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                            <StackLayout x:Name="stackButton" Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                <Button x:Name="btnCancel"  FontSize="14" Clicked="btnCancel_Clicked_1"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Cancel" TextColor="OrangeRed" BackgroundColor="Transparent"/>
+                                <Button x:Name="btnSave" Clicked="btnSave_Clicked"   FontSize="14" BackgroundColor="OrangeRed" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Save"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

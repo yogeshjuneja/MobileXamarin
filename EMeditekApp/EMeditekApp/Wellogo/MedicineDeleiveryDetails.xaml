@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.MedicineDeleiveryDetails" Title="Delivery Details"
+             xmlns:custom="clr-namespace:XFormsRadioButton.CustomControls;assembly=XFormsRadioButton">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <StackLayout  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                    <StackLayout x:Name="frameInsuredDetails" BackgroundColor="White" Padding="10,0,10,10">
+                        <ScrollView>
+                            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0"  >
+                                <StackLayout Orientation="Vertical" Margin="0,5,0,0" Padding="0,0,0,0" HeightRequest="30">
+                                    <Entry x:Name="txtFullName"  Placeholder="Name"  TextColor="#000" Margin="0,0,0,0" ></Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblName" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtPhone" Keyboard="Numeric" Placeholder="Phone">
+                                    </Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblPhone" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtAddress" Placeholder="Address"></Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblAddress" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtCity"  Placeholder="City"  TextColor="#000" >
+                                    </Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblCity" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtState"  Placeholder="State"  TextColor="#000" >
+                                    </Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblState" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtPIN"  Placeholder="PIN"  TextColor="#000" Keyboard="Numeric" >
+                                    </Entry>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Label  TextColor="Red" x:Name="lblPIN" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Label Text="Should I Deliver all medicines mentioned in your prescription"></Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" >
+                                    <Picker x:Name="pkrprescription" SelectedIndexChanged="pkrprescription_SelectedIndexChanged" ItemsSource="{Binding ID}"  ItemDisplayBinding="{Binding Name}" Title="Select"  TextColor="#000">
+                                    </Picker>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical"  x:Name="StackMedicine" Margin="0,0,0,0" Padding="0,0,0,0" HeightRequest="50" IsVisible="False" >
+                                    <Label  TextColor="Red" x:Name="lblMedicine" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <Entry x:Name="txtMedicine"  Placeholder="Medicine"  TextColor="#000" >
+                                    </Entry>
+                                </StackLayout>
+                                <StackLayout x:Name="stackButton" Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                    <Label  TextColor="Red" x:Name="lblprescription" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Button x:Name="btnSave" Clicked="btnSave_Clicked" FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Proceed"/>
+                                       
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                    <!--</StackLayout>-->
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#C0808080" IsVisible="False" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

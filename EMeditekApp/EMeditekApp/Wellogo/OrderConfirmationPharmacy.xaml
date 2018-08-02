@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.OrderConfirmationPharmacy"
+                  xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="Order Confirmation">
+    <AbsoluteLayout BackgroundColor="#fff">
+
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"   BackgroundColor="#F6F6F6"  >
+            <StackLayout Margin="8" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                        <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                        <Image Source="cross.png" WidthRequest="30" HeightRequest="30"></Image>
+                    </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+
+                    <ListView x:Name="lstPharmacy" Margin="10,10,10,10" HasUnevenRows="True"  BackgroundColor="White"   HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand"  CachingStrategy="RecycleElement">
+                    <ListView.Header>
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="Prescription Images(s)" HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                            </StackLayout>
+                            <BoxView Color="#ccc" Margin="0,5,0,5" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,0,0,0">
+                                            <!--<ff:CachedImage Aspect="AspectFill"  WidthRequest="50" HeightRequest="50"  Source="{Binding url}" DownsampleToViewSize="true"></ff:CachedImage>-->
+                                            <ff:CachedImage Source="{Binding url}" HeightRequest="50" IsOpaque="True"  WidthRequest="50"></ff:CachedImage>
+                                        <Label x:Name="lblimagename" Text="{Binding name}" VerticalTextAlignment="Center" FontSize="Default"></Label>
+                                        <Image Source="cross.png" HeightRequest="25" HorizontalOptions="EndAndExpand" WidthRequest="25"></Image>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding id}"></TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout>
+                            
+                            <BoxView Color="#ccc" Margin="0,5,0,5" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                            <Button Text="+ ADD MORE IMAGES" Clicked="btnUpload_Clicked" x:Name="btnUpload" BackgroundColor="#ff6666" HorizontalOptions="FillAndExpand"></Button>
+                             
+                            <StackLayout Orientation="Vertical">
+                                    <BoxView Color="#F6F6F6" HeightRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                        <Label Text="Delivery Address" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                        <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                    </StackLayout>
+                                    <StackLayout>
+                                        <Label x:Name="lblName"  FontSize="18" FontAttributes="Bold"></Label>
+                                        <Label x:Name="lbladdress"  FontSize="16" FontAttributes="Bold" ></Label>
+                                        <Label x:Name="lblState"  FontSize="16" FontAttributes="Bold"></Label>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label x:Name="lblCity"  FontSize="16" FontAttributes="Bold"></Label>
+                                            <Label Text="-"></Label>
+                                            <Label x:Name="lblPin"  FontSize="16" FontAttributes="Bold"></Label>
+                                        </StackLayout>
+                                        <Label x:Name="lblMobile"  FontSize="16" FontAttributes="Bold"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout BackgroundColor="#F6F6F6">
+                                <Frame BackgroundColor="#D6FEFD">
+                                    <Label Text="Our partner retailer/pharmacist will contact you shortly. This is to verify the details of your order and to inform you abount the price of your order and the discount offered." TextColor="#2FD3CE"></Label>
+                                </Frame>
+                                <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Button x:Name="btnCancel"  FontSize="14" TextColor="#2196f2"  HorizontalOptions="FillAndExpand"  HeightRequest="50" Clicked="btnCancel_Clicked" Text="Cancel" />
+                                    <Button x:Name="btnSave"  FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand" Clicked="btnSave_Clicked" HeightRequest="50" Text="Submit"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ListView.Footer>
+
+                </ListView>
+            </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

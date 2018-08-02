@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.FitnessTracker"
+             xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize" Title="Select Your Tracker">
+    <AbsoluteLayout BackgroundColor="#edecee">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+            <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout x:Name="stkMainStack" Orientation="Vertical" BackgroundColor="#fff" MinimumHeightRequest="30" Margin="0,2,0,2">
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Margin="0" Padding="0" VerticalOptions="FillAndExpand">
+                            <Button  Text="Fit Bit" FontSize="14" FontFamily="Roboto" TextColor="#000" Clicked="TapGestureRecognizer_TappedFitBit" />
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedFitBit"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>-->
+                    </StackLayout>
+
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical" Margin="0" Padding="0">
+                            <Button  Text="Google Fit" FontSize="14" FontFamily="Roboto" TextColor="#000" Clicked="TapGestureRecognizer_TappedGoogleFit" />
+                         
+                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedGoogleFit"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>-->
+                    </StackLayout>
+                </StackLayout>
+ 
+                <StackLayout   HorizontalOptions="FillAndExpand" Orientation="Vertical" >
+                        <StackLayout Orientation="Vertical" BackgroundColor="Transparent" Margin="0,10,0,10" x:Name="stkIntegratedStack">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,10,5">
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout Orientation="Horizontal" >
+                                                <icons:IconImage Icon="ion-android-watch"  WidthRequest="20"  HeightRequest="20" ></icons:IconImage>
+                                                <Label  Text="Fitness Tracker" FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                                            </StackLayout>
+                                            <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+
+                                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                                <Label x:Name="lblMessage"  Text="You havn't integrated any fitness tracker" FontSize="15" FontFamily="Roboto" />
+                                            </StackLayout>
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <Label   Text="UNPAIR" HorizontalOptions="Center"  FontSize="13" Grid.Row="0" Grid.Column="0" FontFamily="Roboto" TextColor="OrangeRed" >
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                </Label.GestureRecognizers>
+                                                
+                                            </Label>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

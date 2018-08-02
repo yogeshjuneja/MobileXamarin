@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.ScheduleX" Title="List of Schedule X Medicines">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Name="close" Order="Primary" Icon="crosswhite.png" Priority="0" Clicked="close_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout BackgroundColor="#fff">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <StackLayout Margin="5"  VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+
+
+                <ListView x:Name="lvdrugs" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="lstDrugs_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                    <Frame HasShadow="True" Padding="10" 
+                        HorizontalOptions="FillAndExpand"
+                       Margin="5">
+
+                                        <Label Text="{Binding .}" VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalTextAlignment="Center" HorizontalTextAlignment="Start"/>
+                                    </Frame>
+                                
+                            </ViewCell>
+                        </DataTemplate>
+                        
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+               
+
+                
+
+
+
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="White" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </StackLayout>
+</ContentPage>

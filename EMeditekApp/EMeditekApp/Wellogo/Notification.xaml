@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.Notification" Title="Notification">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary"  Text="X" Clicked="MenuItem1_Clicked" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView  x:Name="lstNotofication" SeparatorVisibility="Default" ItemAppearing="lstNotofication_ItemAppearing" BackgroundColor="Transparent"
+                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                            HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="0,0,0,5">
+                                <Label Text="{Binding title}" FontSize="Medium" TextColor="Black" Margin="3,0,0,0"/>
+                                <Label Text="{Binding message}"  FontSize="Default" Margin="3,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+
+        <!--<ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="White" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>-->
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.UploadPrescription" Title="Upload Prescription">
+    <AbsoluteLayout BackgroundColor="#fff">
+       
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+            <ScrollView>
+                <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" BackgroundColor="#FFFCFC" MinimumHeightRequest="30">
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                    <StackLayout>
+                                        <StackLayout  BackgroundColor="#FBE7E7" HeightRequest="50">
+                                            <Label Text="ORDER ONLINdE AND GET UPTO 20 % OFF" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Maroon" ></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"  BackgroundColor="#FFF">
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Upload a prescription and have medicine delivered straight at your doorstep." HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                                </StackLayout>
+                                                <StackLayout>
+                                                    <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>
+                                                    <Image Source="cloud.png" HeightRequest="100" WidthRequest="100"></Image>
+                                                    <Label  x:Name="lblFileCount" Text="No File Choosen" FontSize="12" HorizontalOptions="CenterAndExpand" FontFamily="Roboto" TextColor="#000" />
+                                                    <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>
+                                                    <Label Text="CHOOSE FILES" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Maroon" ></Label>
+                                                    <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>
+                                                    <StackLayout.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                    </StackLayout.GestureRecognizers>
+                                                </StackLayout>
+                                                <StackLayout>
+                                                    <Button Text="Proceed" Clicked="btnUpload_Clicked" x:Name="btnUpload" BackgroundColor="#ff6666" HorizontalOptions="FillAndExpand"></Button>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                            <Label Text="Instructions" TextColor="Black" HorizontalOptions="Start"></Label>
+                            <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>
+                            <Label Text="1. Ensure that the picture or scan is such that the entire prescription is visible (including the doctor or clinic's letterhead)."></Label>
+                            <Label Text="2. Ensure that the picture is taken in a way that the handwriting /type is visible clearly."></Label>
+                            <Label Text="3. The file size should not exceed 10 MB."></Label>
+                            <Label Text="4. Ensure that the prescription is valid."></Label>
+                            <Label Text="5. You can upload a total of 4 prescriptions per order."></Label>
+
+                        </StackLayout>
+                            <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>
+                            <StackLayout Orientation="Vertical" BackgroundColor="#D6FEFD">
+
+
+                                <!--<Grid HeightRequest="130">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Column="0" TextColor="#2FD3CE" Grid.Row="0"  VerticalTextAlignment="Start" Text="In compliance with Drug and Cosemetic A, we do not accept requests from"/>
+                                    <Label x:Name="lblschedule" TextColor="Blue"  Grid.Column="0"  Grid.Row="0" VerticalTextAlignment="Center" Margin="0,2,0,0" HorizontalOptions="Center" VerticalOptions="Center" Text="Schedule X"></Label>
+                                    <Label Grid.Column="0" Grid.Row="1" Margin="80,0,0,0"  VerticalTextAlignment="Start" HorizontalTextAlignment="Start" Text="and other habit forming drugs. We accept orders for schedule H and H1 drugs only when a valid prescription from a registered medical practitioner is uploaded."/>
+                                </Grid>-->
+
+                                <Label TextColor="#2FD3CE" x:Name="lblschedule" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span  ForegroundColor="#2FD3CE" Text="In compliance with Drug and Cosemetic A, we do not accept requests from"  />
+                                            <Span ForegroundColor="Blue" Text=" Schedule X "  />
+                                            <Span ForegroundColor="#2FD3CE" Text=" and other habit forming drugs. We accept orders for schedule H and H1 drugs only when a valid prescription from a registered medical practitioner is uploaded." />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+
+
+                            </StackLayout>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

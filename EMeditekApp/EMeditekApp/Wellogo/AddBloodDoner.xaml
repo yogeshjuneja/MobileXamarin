@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.AddBloodDoner"
+             Title="Register as Donor">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <StackLayout  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                    <StackLayout x:Name="frameInsuredDetails" BackgroundColor="White" Padding="10,0,10,10">
+                        <ScrollView>
+                            <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0"  >
+                                
+                                
+                            <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Full Name"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblName" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Entry x:Name="txtFullName"  Placeholder="Full Name"  TextColor="#000" Margin="0,0,0,0" ></Entry>
+                            </StackLayout>
+                                
+                                 
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Email"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblEmail" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Entry x:Name="txtEmail"  Keyboard="Email" Placeholder="Email"  TextColor="#000" >
+                                    </Entry>
+                                </StackLayout>
+                                
+                                
+                                
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Age"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblAge" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Entry x:Name="txtAge"  Keyboard="Numeric" Placeholder="Age"  TextColor="#000" TextChanged="txtAge_TextChanged" >
+                                         
+                                    </Entry>
+                                </StackLayout>
+                                
+                                
+                                
+                                <StackLayout Orientation="Vertical" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Phone"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblPhone" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Entry x:Name="txtPhone" Keyboard="Numeric" Placeholder="Phone">
+                                </Entry>
+                            </StackLayout>
+                                
+                                
+                                
+                                
+                                <StackLayout Orientation="Vertical"  >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Address"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblAddress" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Entry x:Name="txtAddress" Placeholder="Address"></Entry>
+                            </StackLayout>
+                                
+                                
+                                
+                                
+                                <StackLayout x:Name="PrefferedDate" Orientation="Vertical"   >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Prefered Date"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                    </StackLayout>
+                                    <DatePicker x:Name="dpPrefferedDate" TextColor="#000"   >
+                                    <DatePicker.Format>dd/MMM/yyyy</DatePicker.Format>
+                                </DatePicker>
+                            </StackLayout>
+                                
+                                
+                                
+                                
+                                <StackLayout x:Name="slMobileNo" Orientation="Vertical" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Gender"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label  Text="*" TextColor="Red" ></Label>
+                                        <Label  TextColor="Red" x:Name="lblGender" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                    <Picker x:Name="pkrGender" Title="Gender" ItemsSource="{Binding lstGender,Mode=TwoWay}" ItemDisplayBinding="{Binding Name}" ></Picker>
+                            </StackLayout>
+                                
+                                
+                                
+                                <StackLayout x:Name="Comment" Orientation="Vertical" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                        <Label  Text="Comment"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <!--<Label  Text="*" TextColor="Red" ></Label>-->
+                                        <Label  TextColor="Red" x:Name="lblComment" FontSize="Micro" Margin="0,0,0,0"></Label>
+                                    </StackLayout>
+                                   
+
+                                    <Entry x:Name="txtComment" Placeholder="Message" >
+                                </Entry>
+                            </StackLayout>
+
+                              
+                            <StackLayout x:Name="stackButton" Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                   
+                                    <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Button x:Name="btnSave"  FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand" Clicked="btnSave_Clicked" HeightRequest="50" Text="Submit"/>
+                                        <Button x:Name="btnCancel"  FontSize="14" TextColor="#2196f2"  HorizontalOptions="FillAndExpand" Clicked="btnCancel_Clicked" HeightRequest="50" Text="Cancel"/>
+                                    </StackLayout>
+                            </StackLayout>
+                                <StackLayout Orientation="Vertical" x:Name="errstack">
+                                </StackLayout>
+                            </StackLayout>
+                        </ScrollView>
+
+                    </StackLayout>
+
+
+
+
+                    <!--</StackLayout>-->
+                </StackLayout>
+
+                
+            </StackLayout>
+            
+            
+            
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="#C0808080" IsVisible="False" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

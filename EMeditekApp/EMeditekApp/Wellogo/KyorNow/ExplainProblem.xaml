@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.KyorNow.ExplainProblem"
+             BackgroundColor="{StaticResource ContentBackgroundColor}"
+             Title="Expain Your Problem in Detail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Microsoft.png" Text="Alert" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android">0,0,0,0</On>
+                    <On Platform="iOS">0,20,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <ScrollView>
+                <StackLayout>
+
+                    <!--First Frame Starts-->
+
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <StackLayout>
+                            <Label Text="Who is the paitent?"></Label>
+
+                            <StackLayout Orientation="Horizontal" Style="{StaticResource StackLayoutFillAndExpand}">
+
+                                <StackLayout  Style="{StaticResource StackLayoutFillAndExpand}" >
+
+                                    <Button Text="       Self       "  
+                                            x:Name="SelfButton"  
+                                            TextColor="{StaticResource ThemeColor}"
+                                            BackgroundColor="Transparent"
+                                            Clicked="SelfButton_Clicked"
+                                            Margin="3,3,3,0"
+                                            BorderColor="Transparent"
+                                            FontSize="Small">
+                                    </Button>
+
+
+                                    <BoxView VerticalOptions="CenterAndExpand" HeightRequest="1"
+                                             BackgroundColor="{StaticResource ThemeColor}"  x:Name="SelfLine"/>
+
+                                </StackLayout>
+
+                                <StackLayout Style="{StaticResource StackLayoutFillAndExpand}">
+                                    <Button Text="Someone else"  x:Name="SomeoneElseButton" 
+                                            BackgroundColor="Transparent"
+                                            Clicked="SomeoneElseButton_Clicked"
+                                            Margin="3,3,3,0"
+                                            BorderColor="Transparent"
+                                            FontSize="Small">
+                                    </Button>
+
+                                    <BoxView  VerticalOptions="CenterAndExpand" HeightRequest="1"
+                                              BackgroundColor="Gray"  x:Name="SomeoneElseLine"/>
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+
+                    <!--First Frame Ends-->
+
+
+
+                    <!--Age Frame Starts-->
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <StackLayout>
+                            <Label Text="Paitent age?"></Label>
+
+                            <StackLayout Orientation="Horizontal" Style="{StaticResource StackLayoutFillAndExpand}">
+
+                                <Entry  Placeholder="e.g. 26" Keyboard="Numeric" HorizontalOptions="FillAndExpand"/>
+
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+                    <!--Age Frame Ends-->
+
+
+                    <!--Gender Frame Starts-->
+
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <StackLayout>
+                            <Label Text="Who is the paitent?"></Label>
+
+                            <StackLayout Orientation="Horizontal" Style="{StaticResource StackLayoutFillAndExpand}">
+
+
+                                <StackLayout  Style="{StaticResource StackLayoutFillAndExpand}" >
+                                    <Button Text="  Male  "  
+                                            x:Name="MaleButton"  
+                                            TextColor="{StaticResource ThemeColor}"
+                                            BackgroundColor="Transparent"
+                                            Clicked="MaleButton_Clicked"
+                                            Margin="3,3,3,0"
+                                            BorderColor="Transparent"
+                                            FontSize="Small">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout Style="{StaticResource StackLayoutFillAndExpand}">
+                                    <Button Text=" Female "  x:Name="FemaleButton" 
+                                            BackgroundColor="Transparent"
+                                            Clicked="FemaleButton_Clicked"
+                                            Margin="3,3,3,0"
+                                            BorderColor="Transparent"
+                                            FontSize="Small">
+                                    </Button>
+                                </StackLayout>
+
+                                <StackLayout Style="{StaticResource StackLayoutFillAndExpand}">
+                                    <Button Text=" Other "  x:Name="OtherButton" 
+                                            BackgroundColor="Transparent"
+                                            Clicked="OtherButton_Clicked"
+                                            Margin="3,3,3,0"
+                                            BorderColor="Transparent"
+                                            FontSize="Small">
+                                    </Button>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Gender Frame Ends-->
+
+                    <!--Editor  Starts -->
+
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <StackLayout>
+                            <Label 
+                                        Text="Explain your health issue in detail."
+                                        Style="{StaticResource LabelPageHeadingStyle}">
+                            </Label>
+
+                            <Editor x:Name="editor"   HeightRequest="200" >
+
+                            </Editor>
+                        </StackLayout>
+                    </Frame>
+
+
+                    <!--Editor  Ends -->
+
+
+
+                    <!--Picker  Starts -->
+
+                    <Frame Style="{StaticResource FrameStyle}">
+                        <StackLayout>
+                            <Picker  x:Name="picker" >
+                                
+                            </Picker>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Picker  Ends -->
+
+                    <Button Text="Next" Clicked="NextButton_Clicked"
+                            Style="{StaticResource ButtonStyle}"></Button>
+                    
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

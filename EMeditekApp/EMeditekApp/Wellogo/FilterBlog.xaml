@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.FilterBlog" Title="Filter">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#f8f8f8">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <StackLayout Margin="10,10,10,0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                    <StackLayout >
+                        <StackLayout >
+                            <Label x:Name="lblCategories" Text="Categories: " FontSize="20" FontFamily="Roboto" WidthRequest="100" FontAttributes="Bold" TextColor="#000" HorizontalOptions="FillAndExpand"></Label>
+                            <Picker x:Name="pkrState" Title="Select Category" ItemsSource="{Binding name}" ItemDisplayBinding="{Binding name}" HorizontalOptions="FillAndExpand"></Picker>
+                        </StackLayout>
+
+                       
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Apply" BackgroundColor="OrangeRed" x:Name="Apply" Clicked="Apply_Clicked"></Button>
+                        <Button Text="Cancel" Clicked="Button_Clicked_1" ></Button>
+
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

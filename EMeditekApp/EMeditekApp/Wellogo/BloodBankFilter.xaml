@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.BloodBankFilter"
+             Title="Filter" NavigationPage.HasBackButton="True">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#f8f8f8">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <StackLayout Margin="10,10,10,0" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                    <StackLayout >
+                            <StackLayout >
+                                <Label x:Name="lblState" Text="State: " FontSize="20" FontFamily="Roboto" WidthRequest="100" FontAttributes="Bold" TextColor="#000" HorizontalOptions="FillAndExpand"></Label>
+                                <Picker x:Name="pkrState" Title="Select State" ItemsSource="{Binding data}" SelectedIndexChanged="pkrState_SelectedIndexChanged" HorizontalOptions="FillAndExpand"></Picker>
+                            </StackLayout>
+                        
+                            <StackLayout >
+                                <Label x:Name="lblCity" Text="City: " FontSize="20" FontFamily="Roboto" WidthRequest="100" FontAttributes="Bold" TextColor="#000" HorizontalOptions="FillAndExpand"></Label>
+                                <Picker x:Name="pkrCity" Title="Select City" HorizontalOptions="FillAndExpand"></Picker>
+                            </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Button Text="Apply" BackgroundColor="OrangeRed" Clicked="Button_Clicked"></Button>
+                        <Button Text="Cancel" Clicked="Button_Clicked_1" ></Button>
+                        
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

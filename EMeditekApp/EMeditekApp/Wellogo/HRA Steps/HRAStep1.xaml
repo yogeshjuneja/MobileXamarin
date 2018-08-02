@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HRA_Steps.HRAStep1" 
+              xmlns:controls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             Title="Physical Examination" >
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#fff">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <ScrollView>
+                    <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                        <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                            <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout  HorizontalOptions="StartAndExpand" Orientation="Horizontal">
+                                    <Label Text="Centimeters  " TextColor="Black"></Label>
+                                        <controls:CheckBox x:Name="chkCentimeters" CheckChanged="chkCentimeters_CheckChanged"></controls:CheckBox>
+                                        <!--<Switch x:Name="swcFeetInches" Toggled="swcFeetInches_Toggled" IsToggled="True">
+                                    </Switch>-->
+                                    <Label Text="Feet Inches   "></Label>
+                                        <controls:CheckBox x:Name="chkFeetInches" CheckChanged="chkFeetInches_CheckChanged"  Checked="True" ></controls:CheckBox>
+                                    </StackLayout>
+                            </StackLayout>
+                            
+                            
+                            <StackLayout x:Name="stkFeetInches" Orientation="Vertical">
+                                    <Label Text="Height (in Feet)" Margin="0" TextColor="Black"></Label>
+                                    <Entry x:Name="txtHeightFeet" Keyboard="Numeric" Margin="0" TextChanged="txtHeightFeet_TextChanged"></Entry>
+                                    <Label FontSize="Micro" Text="The Height feet field is required when none of height feet  dont know are present." TextColor="Red" Margin="0" x:Name="lblHeightFeet" IsVisible="False"></Label>
+                                    <Label Text="Height (in Inches)" TextColor="Black"></Label>
+                                    <Entry x:Name="txtHeightInches" Keyboard="Numeric" TextChanged="txtHeightFeet_TextChanged"></Entry>
+                                    <Label FontSize="Micro" Text="The Height inches field is requires when none of height inches dont know are present." TextColor="Red" Margin="0" x:Name="lblHeightInches" IsVisible="False"></Label>
+                            </StackLayout>
+                            <StackLayout x:Name="stkCentimeters" Orientation="Vertical" IsVisible="False">
+                                    <Label Text="Height (in Cms)" TextColor="Black"></Label>
+                                    <Entry x:Name="txtHeightCentimeters" Keyboard="Numeric" TextChanged="txtHeightFeet_TextChanged"></Entry>
+                                    <Label FontSize="Micro" Text="The Height centimeter field is requires when none of height centimeter dont know are present." TextColor="Red" Margin="0" x:Name="lblHeightCentimeter" IsVisible="False"></Label>
+                                </StackLayout>
+                                <StackLayout Margin="0" Padding="0" Orientation="Horizontal">
+                                <controls:CheckBox x:Name="chkHeightKnow" Text="Don't Know" CheckChanged="chkHeightKnow_CheckChanged"></controls:CheckBox>
+                                    <Label Text="   Don't Know" TextColor="Black"></Label>
+                                </StackLayout>
+
+                            </StackLayout>
+                        <StackLayout>
+                            
+                            <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Weight" TextColor="Black"></Label>
+                                    <Entry x:Name="txtWeight" Keyboard="Numeric" TextChanged="txtHeightFeet_TextChanged"></Entry>
+                                    <Label FontSize="Micro" Text="The Weight kgs field is required when weight dont know is not present." TextColor="Red" Margin="0" x:Name="lblWeight" IsVisible="False"></Label>
+                                    <StackLayout Margin="0" Padding="0" Orientation="Horizontal">
+                                        <controls:CheckBox x:Name="chkWeightKnown" Text="Don't Know" CheckChanged="chkWeightKnown_CheckChanged"></controls:CheckBox>
+                                        <Label Text="   Don't Know" TextColor="Black"></Label>
+                                    </StackLayout>
+                            </StackLayout>
+                            
+                            
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="BMI" TextColor="Black"></Label>
+                                    <Entry x:Name="txtBMI" Keyboard="Numeric" IsEnabled="False"></Entry>
+                                </StackLayout>
+                            
+                            
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Blood Pressure (Systolic)" TextColor="Black"></Label>
+                                    <Entry x:Name="txtBPSys" Keyboard="Numeric"></Entry>
+                                    <Label FontSize="Micro" Text="The blood pressure systolic field is required when blood pressure systolic dont know is not present " TextColor="Red" Margin="0" x:Name="lblBpsys" IsVisible="False"></Label>
+                                    <StackLayout Margin="0" Padding="0" Orientation="Horizontal">
+                                        <controls:CheckBox x:Name="chkBPSysKnown" Text="Don't Know" CheckChanged="chkBPSysKnown_CheckChanged"></controls:CheckBox>
+                                        <Label Text="   Don't Know" TextColor="Black"></Label>
+                                    </StackLayout>
+                                   
+                                </StackLayout>
+                            
+                            
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Blood Pressure (Diastolic)" TextColor="Black"></Label>
+                                    <Entry x:Name="txtBPDio" Keyboard="Numeric"></Entry>
+                                    <Label FontSize="Micro" Text="The blood pressure diastolic field is required when blood pressure diastolic dont know is not present " TextColor="Red" Margin="0" x:Name="lblBpDio" IsVisible="False"></Label>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <controls:CheckBox x:Name="chkBPDioKnown" Text="Don't Know" CheckChanged="chkBPDioKnown_CheckChanged"></controls:CheckBox>
+                                        <Label Text="   Don't Know" TextColor="Black"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            
+                            
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Blood Group" TextColor="Black"></Label>
+                                    <Entry x:Name="txtBloodGroup" Keyboard="Numeric" IsEnabled="False"></Entry>
+                                    <Label FontSize="Micro" TextColor="Red" Margin="0" x:Name="lblBloodGroup" IsVisible="False"></Label>
+                                </StackLayout>
+ 
+                            </StackLayout>
+                        <StackLayout x:Name="stackButton" Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                <Button x:Name="btnCancel"  FontSize="14" Clicked="btnCancel_Clicked"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Cancel" TextColor="OrangeRed" BackgroundColor="Transparent"/>
+                            <Button x:Name="btnSave" Clicked="btnSave_Clicked"   FontSize="14" BackgroundColor="OrangeRed" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Save"/>
+                        </StackLayout>
+ 
+                    </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

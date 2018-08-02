@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.AHCCheckout"
+             xmlns:fe = "clr-namespace:XLabs.Forms.Controls;assembly:XLabs.Forms" Title="Checkout"
+              xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Name="close" Order="Primary" Icon="crosswhite.png" Priority="0" Clicked="close_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#fff" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <ListView x:Name="lstCheckout" HasUnevenRows="True" BackgroundColor="White" VerticalOptions="FillAndExpand" Margin="0,0,0,15">
+                    <ListView.Header>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Review Order Details" HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Medium" FontAttributes="Bold" TextColor="Black"></Label>
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+
+                                        <Frame HasShadow="True">
+                                            <StackLayout>
+                                                <Frame HasShadow="True">
+                                                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="5,10,5,0">
+                                                        <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label HorizontalTextAlignment="Start" FontAttributes="Bold"  HorizontalOptions="StartAndExpand"  Text="Name" ></Label>
+                                                                    <Label HorizontalTextAlignment="Start"  HorizontalOptions="EndAndExpand"  Text="{Binding name}" ></Label>
+                                                                </StackLayout>
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label Text="Relation" HorizontalTextAlignment="Start" FontAttributes="Bold"  HorizontalOptions="StartAndExpand"   ></Label>
+                                                                    <Label Text="{Binding relation}" HorizontalTextAlignment="Start"  HorizontalOptions="EndAndExpand"   ></Label>
+                                                                </StackLayout>
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label Text="Phone No" HorizontalTextAlignment="Start"  FontAttributes="Bold"  HorizontalOptions="StartAndExpand"   ></Label>
+                                                                    <Label Text="{Binding phone}" HorizontalTextAlignment="Start"  HorizontalOptions="EndAndExpand"   ></Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Frame HasShadow="True">
+                                                    <StackLayout  HorizontalOptions="FillAndExpand" x:Name="stktestsselected" Orientation="Vertical" VerticalOptions="FillAndExpand" >
+                                                        <StackLayout Orientation="Vertical" BackgroundColor="Transparent">
+                                                            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="5,0,5,0">
+                                                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+
+                                                                    <StackLayout HorizontalOptions="FillAndExpand">
+                                                                        <!--<StackLayout Orientation="Horizontal" Margin="10,0,10,0">-->
+                                                                        <ListView HasUnevenRows="True" ItemsSource="{Binding  tests}" HeightRequest="80">
+                                                                            <ListView.Header>
+                                                                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                                                                    <Label Text="Tests Selected" FontAttributes="Bold" HorizontalOptions="StartAndExpand"></Label>
+                                                                                    <BoxView Color="#F6F6F6" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                                                                </StackLayout>
+                                                                            </ListView.Header>
+                                                                            <ListView.ItemTemplate>
+                                                                                <DataTemplate>
+                                                                                    <ViewCell IsEnabled="False">
+                                                                                        <ViewCell.View>
+                                                                                            <StackLayout Orientation="Horizontal">
+                                                                                                <Label Text="{Binding test_dump.name}"></Label>
+                                                                                                <Label Text="[ INR "></Label>
+                                                                                                <Label Text="{Binding test_dump.price.price}"></Label>
+                                                                                                <Label Text="]"></Label>
+                                                                                            </StackLayout>
+                                                                                        </ViewCell.View>
+                                                                                    </ViewCell>
+                                                                                </DataTemplate>
+                                                                            </ListView.ItemTemplate>
+                                                                        </ListView>
+                                                                    </StackLayout>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Frame HasShadow="True">
+                                                    <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="5,0,5,0">
+                                                        <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                                                    <Label Text="Lab Details" HorizontalTextAlignment="Start" FontAttributes="Bold"  HorizontalOptions="StartAndExpand"></Label>
+                                                                </StackLayout>
+                                                                <BoxView Color="#F6F6F6" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+
+                                                                <Label Text="{Binding dc.dc_dump.name}" HorizontalTextAlignment="Start" FontSize="Small"  HorizontalOptions="StartAndExpand"></Label>
+                                                                <Label Text="{Binding dc.dc_dump.address}" HorizontalTextAlignment="Start" FontSize="Small"  HorizontalOptions="StartAndExpand"></Label>
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <Label Text="Appointment date" HorizontalTextAlignment="Start" FontAttributes="Bold"  HorizontalOptions="StartAndExpand"></Label>
+                                                                    <Label Text="{Binding dc.appointment_date}" HorizontalTextAlignment="Start"  HorizontalOptions="EndAndExpand"></Label>
+                                                                </StackLayout>
+                                                            </StackLayout>
+
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                                <Button x:Name="btneditOrder" CommandParameter="{Binding .}" Clicked="btneditOrder_Clicked"  FontSize="14" TextColor="#2196f2"  HorizontalOptions="Start"  BackgroundColor="Transparent"  HeightRequest="40" Text="Edit"/>
+                                            </StackLayout>
+                                        </Frame>
+                                        <!--</StackLayout>-->
+                                    </StackLayout>
+
+
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.Footer>
+                        <StackLayout BackgroundColor="#F6F6F6">
+                            <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+
+                                <Button x:Name="btnPlaceOrder" Clicked="btnPlaceOrder_Clicked"  FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand"  HeightRequest="50" Text="Place Order"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ListView.Footer>
+
+                </ListView>
+
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large"  TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

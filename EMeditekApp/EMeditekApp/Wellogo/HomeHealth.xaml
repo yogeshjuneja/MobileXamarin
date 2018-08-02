@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HomeHealth"
+             Title="Home Health ">
+    <AbsoluteLayout BackgroundColor="#edecee">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+            <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <ListView x:Name="listHomeHealth"  HasUnevenRows="True" HorizontalOptions="FillAndExpand" ItemTapped="listHomeHealth_ItemTapped" BackgroundColor="Wheat">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+
+                                 
+                                        
+                                            
+                                        <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand" Padding="10,5,10,5">
+                                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                                        
+                                                            <Image Source="{Binding image}" WidthRequest="40" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Image>
+                                                            <Label x:Name="lblName" Text="{Binding name}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="16" FontAttributes="Bold" FontFamily="Roboto" TextColor="#000"/>
+                                                        
+                                                        <Label FontSize="14" FontFamily="Roboto" TextColor="#000" Text="{Binding about}" />
+                                                    </Frame>
+                                                </StackLayout>
+                                            
+                              
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#edecee" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

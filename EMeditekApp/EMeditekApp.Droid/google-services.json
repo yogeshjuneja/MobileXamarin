@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "121145201934",
+    "firebase_url": "https://emeditekapp.firebaseio.com",
+    "project_id": "emeditekapp",
+    "storage_bucket": "emeditekapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121145201934:android:fcdaf2aed1a3c476",
+        "android_client_info": {
+          "package_name": "com.EMeditekApp.xamarin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121145201934-st7t8g8aq2aped0v5761uclra3eeskri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoKC3o6ss5nC-QMOY4mjGooQzVDvf1pPM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

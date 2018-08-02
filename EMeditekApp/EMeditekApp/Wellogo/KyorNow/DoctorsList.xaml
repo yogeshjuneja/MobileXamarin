@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+            xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="EMeditekApp.Wellogo.KyorNow.DoctorsList" Title="Choose your Doctor">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Microsoft.png" Text=" " Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Style ="{StaticResource StackLayoutFillAndExpand}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness"> 
+                    <On Platform="Android">0,0,0,0</On>
+                    <On Platform="iOS">0,20,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <ScrollView>
+
+                <StackLayout>
+
+                    <StackLayout x:Name="doctorLayout">
+                        <Frame Style="{StaticResource FrameStyle}" Padding="0" CornerRadius="0">
+                            <StackLayout Orientation="Horizontal" Margin="0">
+                                <BoxView WidthRequest="10" BackgroundColor="{StaticResource ThemeColor}" ></BoxView>
+
+                                <StackLayout>
+                                    <!--Doctor's Photo-->
+                                    <StackLayout  x:Name="DoctorsImage">
+                                        <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			                                   DownsampleToViewSize="true" 
+			                                    Source = "https://i.pinimg.com/564x/a3/85/f2/a385f2a06b5e2b8faa77e3ecea5850c9.jpg">
+                                            <ffimageloading:CachedImage.Transformations>
+                                                <ffTransformations:RoundedTransformation Radius="20"/>
+                                            </ffimageloading:CachedImage.Transformations>
+                                        </ffimageloading:CachedImage>
+
+                                    </StackLayout>
+                                    <!--Doctor's Rating-->
+                                    <StackLayout x:Name="Doctorsrating">
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                                <!--Doctor's Details-->
+                                <StackLayout>
+                                    <Label 
+                                        Text="Dr. Akash Sharma"
+                                        Style="{StaticResource LabelPageHeadingStyle}">
+                                    </Label>
+                                    <Label 
+                                        Text="MBBS"
+                                        Style="{StaticResource NormalLabelStyle}">
+                                    </Label>
+                                    <Label 
+                                        Text="General Physician"
+                                        Style="{StaticResource NormalLabelStyle}">
+                                    </Label>
+                                    <Label 
+                                        Text="9 + Years Exp."
+                                        Style="{StaticResource NormalLabelStyle}">
+                                    </Label>
+
+                                    <Label Margin="0,5,0,0"
+                                        Text="Responce Time: 15 Min"
+                                        Style="{StaticResource NormalLabelStyle}">
+                                    </Label>
+                                </StackLayout>
+                                    
+                                <!--Next Page Button-->
+                                <StackLayout>
+                                    <Label Margin="0,5,0,0"
+                                        Text="Avaliable" 
+                                        Style="{StaticResource NormalLabelStyle}"
+                                           TextColor="{StaticResource GreenTextColor}">
+                                    </Label>
+
+                                    <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			                                    DownsampleToViewSize="true"
+			                                    Source = "arrow.png">
+                                    </ffimageloading:CachedImage> 
+
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <Button Text="Next" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

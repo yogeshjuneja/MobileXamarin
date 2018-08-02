@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HRA_Steps.HRAStep8" Title="Habits">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#fff">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <ScrollView>
+                    <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                        <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                            <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+
+                            <StackLayout>
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Do you smoke?" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrSmoke" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}" Title="Select">
+                                    </Picker>
+                                    <Label FontSize="Micro" Text="This field is required" TextColor="Red" Margin="0" x:Name="lblSmoke" IsVisible="False"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Do you drink alcohol?" TextColor="Black"></Label>
+                                    <Picker x:Name="pkealcohol" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}" Title="Select">
+                                    </Picker>
+                                    <Label FontSize="Micro" Text="This field is required" TextColor="Red" Margin="0" x:Name="lblAlcohol" IsVisible="False"></Label>
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Vertical" Margin="0,15,0,0">
+                                    <Label Text="Do you chew Tobacco, Gutka, Paan etc?" TextColor="Black"></Label>
+                                    <Picker x:Name="pkrChew" ItemDisplayBinding="{Binding Name}" ItemsSource="{Binding lstCommonDropDown,Mode=TwoWay}" Title="Select">
+                                    </Picker>
+                                    <Label FontSize="Micro" Text="This field is required" TextColor="Red" Margin="0" x:Name="lblChew" IsVisible="False"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout x:Name="stackButton" Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                <Button x:Name="btnCancel"  FontSize="14" Clicked="btnCancel_Clicked"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Cancel" TextColor="OrangeRed" BackgroundColor="Transparent"/>
+                                <Button x:Name="btnSave" Clicked="btnSave_Clicked"   FontSize="14" BackgroundColor="OrangeRed" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Save"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

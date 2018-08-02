@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.BloodBankDetail">
+
+    <AbsoluteLayout BackgroundColor="#edecee">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+            <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                    <StackLayout Orientation="Vertical" BackgroundColor="#fff" MinimumHeightRequest="30" Margin="0,10,0,0">
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,10,5">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label x:Name="lblName" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" FontSize="16" FontAttributes="Bold" FontFamily="Roboto" TextColor="#000"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame x:Name="frameInsuredDetails" BackgroundColor="#f8f8f8" HasShadow="True" MinimumHeightRequest="200" Padding="10,10,10,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="5"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" x:Name="Address" Text="Address" FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                            <Label Grid.Row="0" Grid.Column="1" Text=":" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="0" Grid.Column="2" x:Name="lblAddress"  FontSize="14" FontFamily="Roboto" TextColor="#6f94c3"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" x:Name="ContactNo" Text="Contact" FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                            <Label Grid.Row="1" Grid.Column="1" Text=":"   FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="1" Grid.Column="2" x:Name="lblContact"  FontSize="14" FontFamily="Roboto" TextColor="#6f94c3"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" x:Name="PinCode" Text="PINCODE" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text=":"   FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="2" Grid.Column="2" x:Name="lblPincode"  FontSize="14" FontFamily="Roboto" TextColor="#6f94c3"/>
+
+
+                            <Label Grid.Row="3" Grid.Column="0" x:Name="City" Text="City" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text=":"   FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="3" Grid.Column="2" x:Name="lblCity"  FontSize="14" FontFamily="Roboto" TextColor="#6f94c3"/>
+
+                            <Label Grid.Row="4" Grid.Column="0" x:Name="State" Text="State" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="4" Grid.Column="1" Text=":"   FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                            <Label Grid.Row="4" Grid.Column="2" x:Name="lblState"  FontSize="14" FontFamily="Roboto" TextColor="#6f94c3"/>
+                        </Grid>
+                    </Frame>
+                    <Frame x:Name="framemessage" BackgroundColor="#f8f8f8" HasShadow="True" MinimumHeightRequest="200" Padding="10,10,10,10">
+                        <Label Text="This data is subject to changes . We try our best to keep this information as up to date as possible"></Label>
+                    </Frame>
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

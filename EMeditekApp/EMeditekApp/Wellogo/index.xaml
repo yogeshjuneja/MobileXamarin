@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.index"
+             xmlns:controls="clr-namespace:XFShapeView;assembly=XFShapeView" Title="Home"
+             xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="bellicon.png" Text=" " Clicked="MenuItem1_Clicked" Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="44"/>
+        </Grid.RowDefinitions>
+        <ContentView x:Name="placeholder" Grid.Row="0"></ContentView>
+        <BoxView BackgroundColor="#DCDCDC" Grid.Row="1"></BoxView>
+        <Grid ColumnSpacing="0" RowSpacing="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackLayout Spacing="0" Grid.Column="0" BackgroundColor="AliceBlue" x:Name="stkHome">
+                    <BoxView IsVisible="False"  x:Name="boxHome" BackgroundColor="{StaticResource ThemeColor}" HeightRequest="3" VerticalOptions="FillAndExpand" />
+                    <icons:IconImage Icon="ion-android-person"  WidthRequest="100"  HeightRequest="30" x:Name="imgHome" ></icons:IconImage>
+                <!--<Image HeightRequest="30" Source="user.png" WidthRequest="100" x:Name="imgHome"></Image>-->
+                <Label x:Name="lblHome" Text="Home" FontSize="10" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Home"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="0" Grid.Column="1" BackgroundColor="AliceBlue" x:Name="stkHealthServices">
+                <BoxView IsVisible="False" x:Name="boxHealthServices" BackgroundColor="{StaticResource ThemeColor}" HeightRequest="3" VerticalOptions="FillAndExpand" />
+                <icons:IconImage Icon="fa-heart"  WidthRequest="100"  HeightRequest="30" x:Name="imghealthservices" ></icons:IconImage>
+                <!--<Image HeightRequest="30" Source="heart.png" WidthRequest="100" x:Name="imghealthservices"></Image>-->
+                <Label  x:Name="lblHealth" Text="Health Services" FontSize="10" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_Services"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+
+            <StackLayout Spacing="0" Grid.Column="2" BackgroundColor="AliceBlue" x:Name="stkServices">
+                <BoxView  IsVisible="False" x:Name="boxSocial" BackgroundColor="{StaticResource ThemeColor}" HeightRequest="3" VerticalOptions="FillAndExpand" />
+                <icons:IconImage Icon="ion-android-watch"  WidthRequest="100"  HeightRequest="30" x:Name="icnServices" ></icons:IconImage>
+                <Label x:Name="lblSocial" Text="Social" FontSize="10" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

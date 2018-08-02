@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.App">
+  <Application.Resources>
+
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">Yellow</Color>
+            <Color x:Key="HeadingTextColor">Black</Color>
+            <Color x:Key="NormalTextColor">Blue</Color>
+            <Color x:Key="ThemeColor">#f44337</Color>
+            <Color x:Key="BackgroundColor">#fff7f7</Color>
+            <Color x:Key="ContentBackgroundColor">##F5F5F5</Color>
+            <Color x:Key="GrayTextColor">#b3b3b3</Color>
+            <Color x:Key="GreenTextColor">#00ff00</Color>
+
+
+
+
+            <Style x:Key="LabelPageHeadingStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource HeadingTextColor}" />
+            </Style>
+
+            <Style x:Key="NormalLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{StaticResource GrayTextColor}" />
+            </Style>
+
+            <Style x:Key="StackLayoutFillAndExpand" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="Padding" Value="5,5,5,5"></Setter>
+            </Style>
+
+
+            <!--<Style  x:Key="ScrollViewStyle" TargetType="ScrollView" >
+
+                <Setter Property="Margin" Value="10,0" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+
+            </Style>-->
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="#f44337" />
+                <Setter Property="TextColor" Value="White" />
+
+            </Style>
+
+            <Style x:Key="FrameStyle" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="IsClippedToBounds" Value="True" />
+                <Setter Property="Margin" Value="2,5" />
+            </Style>
+
+        </ResourceDictionary>
+        <!-- Application resource dictionary -->
+
+  </Application.Resources>
+</Application>

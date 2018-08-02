@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Dashboard">
+  <!--<Border BorderBrush="Black" BorderThickness="2">-->
+  <ContentPage.Content>
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#FFF"  Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <ListView x:Name="listMenu" RowHeight="130" ItemSelected="listMenu_ItemSelected"  HorizontalOptions="FillAndExpand"  >
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <ViewCell.View>
+                  <StackLayout Orientation="Horizontal" Margin="20" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                      <BoxView HorizontalOptions="StartAndExpand">
+                        <!--<Label x:Name="lblName" Text="Name"></Label>-->
+                      </BoxView>
+                      <BoxView HorizontalOptions="CenterAndExpand"></BoxView>
+                      <BoxView HorizontalOptions="EndAndExpand"></BoxView>
+                      <!--<StackLayout Margin="10,10,10,0" HorizontalOptions="StartAndExpand" Grid.Row="0"  Grid.Column="0" >
+
+                      </StackLayout>
+                      <StackLayout Margin="10,10,10,0" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1">
+
+                      </StackLayout>
+                      <StackLayout Margin="10,10,10,0" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="2">
+
+                      </StackLayout>-->
+                    </StackLayout>
+                  </StackLayout>
+                </ViewCell.View>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+      <!--<ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+         AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+          <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+   IsVisible="True" Color="Black" />
+          <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+        </StackLayout>
+      </ContentView>-->
+    </AbsoluteLayout>
+  </ContentPage.Content>
+  <!--<Grid x:Name="LoginGrid" RowSpacing="1" ColumnSpacing="1">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="auto" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"  />
+      <ColumnDefinition Width="*"  />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    <StackLayout Margin="10,10,10,0" HorizontalOptions="FillAndExpand" Grid.Row="0"  Grid.Column="0" >
+      
+    </StackLayout>
+    <StackLayout Margin="10,10,10,0" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1">
+            
+    </StackLayout>
+    <StackLayout Margin="10,10,10,0" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="2">    
+      
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0">          
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1">
+      <BoxView Color="Blue" VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="2">
+      <BoxView Color="Gray" VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0">
+      <BoxView Color="Fuchsia" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="1">
+      <BoxView Color="Lime" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="2">
+      <BoxView Color="Navy" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0">
+      <BoxView Color="Silver" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="1">
+      <BoxView Color="Transparent" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="2">
+      <BoxView Color="White" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="0">
+      <BoxView Color="Navy" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="1">
+      <BoxView Color="Gray" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="4" Grid.Column="2">
+      <BoxView Color="Gray" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.Column="0">
+      <BoxView Color="Gray" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.Column="1">
+      <BoxView Color="Gray" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="5" Grid.Column="2">
+      <BoxView Color="Green" VerticalOptions="FillAndExpand"
+                          HorizontalOptions="FillAndExpand" />
+    </StackLayout>
+    <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3">
+      <Button x:Name="btnBack" Text="Back" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Clicked="OnLoginClicked" TextColor="Black"></Button>
+    </StackLayout>
+
+  </Grid>-->
+
+</ContentPage>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="EMeditekApp.Wellogo.SocialNew"
+             xmlns:Helpers="clr-namespace:EMeditekApp.Wellogo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid ColumnSpacing="0" RowSpacing="0"
+                  VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                
+                <!--tab one-->
+                <StackLayout  BackgroundColor="#f44337"
+                    Grid.Row="0" Grid.Column="0"
+                    VerticalOptions="FillAndExpand"
+                              HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+
+                    <Label Text="You"  TextColor="White"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="tabOneLine" 
+                        HeightRequest="2" BackgroundColor="White"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="End"/>
+
+                </StackLayout>
+
+                <!--tab two-->
+                <StackLayout  BackgroundColor="#f44337"
+                    Grid.Row="0" Grid.Column="1"
+                    VerticalOptions="FillAndExpand">
+                   
+
+                    <Label Text="Leaderboard" TextColor="White"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                    <BoxView x:Name="tabtwoLine"  
+                             HeightRequest="2"   BackgroundColor="#f44337"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="End"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+                <!--First view Page-->
+                <StackLayout x:Name="tabOne" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" IsVisible="True" VerticalOptions="FillAndExpand">
+                    
+                      
+                            <ListView x:Name="lstLeaderBoardLog" SeparatorVisibility="None" ItemAppearing="lstLeaderBoardLog_ItemAppearing" HorizontalOptions="FillAndExpand" HasUnevenRows="True">
+                                <ListView.Header>
+                                    <StackLayout HorizontalOptions="FillAndExpand" HeightRequest="200" Orientation="Vertical" VerticalOptions="Fill" BackgroundColor="#f44337">
+                                        <StackLayout Orientation="Vertical"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image Source="koins.png" HeightRequest="80" WidthRequest="80"></Image>
+                                            <Label x:Name="lblTotalKoins" Text="238.1 Koins" TextColor="White" VerticalTextAlignment="Center" FontSize="Medium" FontAttributes="Bold" Margin="0,0,0,3"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"  VerticalOptions="End" HorizontalOptions="FillAndExpand">
+                                            <Label Text="REDEEM"   VerticalOptions="StartAndExpand" TextColor="White" FontAttributes="Bold" Margin="5">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                            </Label>
+                                            <BoxView BackgroundColor="Transparent" HeightRequest="1" HorizontalOptions="FillAndExpand" />
+                                            <Label Text="HOW TO EARN?" TextColor="White" FontAttributes="Bold" VerticalOptions="End" Margin="5">
+
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"></TapGestureRecognizer>
+                                        </Label.GestureRecognizers>
+                                                
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ListView.Header>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Orientation="Horizontal" Spacing="0">
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="50" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <BoxView  Grid.Row="0" Grid.Column="0"
+                            WidthRequest="7" VerticalOptions="FillAndExpand" BackgroundColor="#ffdddb" HorizontalOptions="Center"/>
+                                                    <Image Grid.Row="0" Grid.Column="0"
+                            Source="ic_add_white.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                                    <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="FillAndExpand">
+                                                        <Frame CornerRadius="10" BackgroundColor="#f2f2f2" Padding="3,5" Margin="5" HorizontalOptions="FillAndExpand">
+                                                            <StackLayout HorizontalOptions="FillAndExpand" Margin="5,0" >
+                                                                <BoxView BackgroundColor="Transparent" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0" />
+                                                                <Label Text="{Binding BlogString}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Start"/>
+                                                                <Label Text="{Binding comment}" FontSize="Micro"/>
+                                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                                                    <Image Source="ic_add_white.png" WidthRequest="8" HeightRequest="8" HorizontalOptions="FillAndExpand"/>
+                                                                    <Label Text="{Binding updated_at}" FontSize="Micro" HorizontalOptions="FillAndExpand"/>
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <!--list starts here-->
+                 
+                
+                </StackLayout>
+
+                <!--Second view Page-->
+                <StackLayout x:Name="tabtwo" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" IsVisible="False"  BackgroundColor="#F6F6F6" VerticalOptions="FillAndExpand">
+                    
+                                <ListView x:Name="lstLeaderBoard" HorizontalOptions="FillAndExpand" HasUnevenRows="True">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Frame BackgroundColor="#fff" HasShadow="True" Padding="10" VerticalOptions="FillAndExpand" Margin="5">
+                                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="FillAndExpand" MinimumHeightRequest="100">
+
+                                                        <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="Start" Margin="5,0,10,0">
+                                                            <!--<Image Source="{Binding photo_url}" WidthRequest="30" HeightRequest="30" VerticalOptions="Center" HorizontalOptions="Start"></Image>-->
+                                                            <controls:CircleImage Source="{Binding photo_url}" Aspect="AspectFill">
+                                                                <controls:CircleImage.WidthRequest>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android, iOS">30</On>
+
+                                                                    </OnPlatform>
+                                                                </controls:CircleImage.WidthRequest>
+                                                                <controls:CircleImage.HeightRequest>
+                                                                    <OnPlatform x:TypeArguments="x:Double">
+                                                                        <On Platform="Android, iOS">30</On>
+
+                                                                    </OnPlatform>
+                                                                </controls:CircleImage.HeightRequest>
+                                                            </controls:CircleImage>
+                                                        </StackLayout>
+                                                       
+                                                        <StackLayout VerticalOptions="CenterAndExpand"  HorizontalOptions="StartAndExpand" >
+                                                            <Label x:Name="lblName" Text="{Binding name}"  VerticalOptions="StartAndExpand" FontSize="15" FontFamily="Roboto" TextColor="#000"/>
+
+                                                            <Frame BackgroundColor="#d9d9d9" HasShadow="False" Padding="0" HorizontalOptions="Fill" CornerRadius="10" IsClippedToBounds="True" >
+                                                                <StackLayout Orientation="Horizontal">
+                                                                    <!--<Image HeightRequest="10" WidthRequest="10" Source="{Binding photo_url}"></Image>-->
+                                                                    <controls:CircleImage Source="Koin.png" Aspect="AspectFill">
+                                                                        <controls:CircleImage.WidthRequest>
+                                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                                <On Platform="Android, iOS">20</On>
+                                                                            </OnPlatform>
+                                                                        </controls:CircleImage.WidthRequest>
+                                                                        <controls:CircleImage.HeightRequest>
+                                                                            <OnPlatform x:TypeArguments="x:Double">
+                                                                                <On Platform="Android, iOS">20</On>
+
+                                                                            </OnPlatform>
+                                                                        </controls:CircleImage.HeightRequest>
+                                                                    </controls:CircleImage>
+                                                        <Label Text="{Binding points, Converter= {Helpers:koinStringChanger}}" Margin="0,0,5,0"></Label>
+                                                                </StackLayout>
+                                                            </Frame>
+                                                        </StackLayout>
+
+                                                        <!--<StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Name" CommandParameter="{Binding Page}"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>-->
+                                                        <StackLayout HorizontalOptions="End" VerticalOptions="Center">
+                                                            <Label Text="{Binding rank}" TextColor="Red" FontSize="Medium"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                 
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

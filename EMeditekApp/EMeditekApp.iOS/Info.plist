@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs access to the camera to take photos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs access to photos.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>iconize-ionicons.ttf</string>
+		<string>iconize-fontawesome.ttf</string>
+		<string>iconize-material.ttf</string>
+		<string>RichardsonBrandAccelerator.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>FontAwesome.ttf</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>tracker</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kyor</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>
+     This app use calender
+   </string>
+	<key>CFBundleDisplayName</key>
+	<string>Kyor</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.xamarin.kyor</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon-60@2x</string>
+		<string>Icon-60@3x</string>
+		<string>Icon-76</string>
+		<string>Icon-76@2x</string>
+		<string>Default</string>
+		<string>Default@2x</string>
+		<string>Default-568h@2x</string>
+		<string>Default-Portrait</string>
+		<string>Default-Portrait@2x</string>
+		<string>Icon-Small-40</string>
+		<string>Icon-Small-40@2x</string>
+		<string>Icon-Small-40@3x</string>
+		<string>Icon-Small</string>
+		<string>Icon-Small@2x</string>
+		<string>Icon-Small@3x</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NS Location When In Use Usage Description</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Need location for geolocator plugin.</string>
+	<key>RequestWhenInUseAuthorization</key>
+	<string>Need location for geolocator plugin.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.9</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleName</key>
+	<string>Kyor</string>
+	<key>MinimumOSVersion</key>
+	<string>11.2</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+</dict>
+</plist>

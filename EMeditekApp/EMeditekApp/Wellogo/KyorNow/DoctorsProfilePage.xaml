@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="EMeditekApp.Wellogo.KyorNow.DoctorsProfilePage"
+             Title="Doctor's Profile">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="Microsoft.png" Text=" " Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Style ="{StaticResource StackLayoutFillAndExpand}">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="Android">0,0,0,0</On>
+                    <On Platform="iOS">0,20,0,0</On>
+                </OnPlatform>
+            </StackLayout.Padding>
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Style ="{StaticResource StackLayoutFillAndExpand}">
+                        
+                        <StackLayout> <!--Profile image-->
+                            <!--<ffimageloading:CachedImage Source="https://i.pinimg.com/564x/a3/85/f2/a385f2a06b5e2b8faa77e3ecea5850c9.jpg">
+                            </ffimageloading:CachedImage>-->
+                        </StackLayout>
+
+
+                            
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

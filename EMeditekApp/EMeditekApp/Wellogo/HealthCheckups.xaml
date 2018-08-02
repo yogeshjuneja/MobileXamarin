@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HealthCheckups"
+             Title="Health Checkups" NavigationPage.HasBackButton="True"
+             xmlns:fe = "clr-namespace:FreshEssentials;assembly:FreshEssentials"
+             xmlns:Helpers="clr-namespace:EMeditekApp.Wellogo"
+             xmlns:behaviors="clr-namespace:EMeditekApp.Wellogo"
+    >
+     
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#F6F6F6" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand">
+                <ListView x:Name="lvHealthCheckups"  BackgroundColor="Transparent" HasUnevenRows="True" VerticalOptions="FillAndExpand" Margin="0,0,0,15">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    
+                                    <StackLayout x:Name="frameInsuredDetails"  BackgroundColor="White" Padding="10,0,10,10" Margin="0,10,0,0">
+                                        
+                                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0"  >
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblPaitentName" IsVisible="{Binding ExistingPatientVisiblity}" Text="Existing Patient" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                </StackLayout>
+                                                <Picker    x:Name="pkrExistingPatients" IsVisible="{Binding ExistingPatientVisiblity}" SelectedIndexChanged="pkrExistingPatients_SelectedIndexChanged" Title="Select from Existing Patient"  ItemsSource="{Binding lstExistingPatient,Mode=OneWay}"  BindingContext="{Binding .}" HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding name}">
+                                                </Picker>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblPolicyNo" Text="Name" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label Text="*" TextColor="Red" IsVisible="{Binding NameEnablity}"></Label>
+                                                </StackLayout>
+                                                <Entry IsEnabled="False"  TextColor="#000" Text="{Binding Name,Mode=TwoWay}" IsVisible="{Binding NameEnablity, Converter= {Helpers:InverseBoolConverter}}" >
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                      <Entry.Behaviors>
+                                                        <behaviors:EntryLengthValidatorBehavior MaxLength="100" />
+                                                    </Entry.Behaviors>
+                                                </Entry>
+
+                                                
+                                                <Entry   x:Name="txtName"  TextColor="#000" Text="{Binding Name,Mode=TwoWay}" IsVisible="{Binding NameEnablity}" >
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                    <Entry.Behaviors>
+                                                        <behaviors:EntryLengthValidatorBehavior MaxLength="100" />
+                                                    </Entry.Behaviors>
+                                                    
+                                                </Entry>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical"  >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblRelation" Text="Relation"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label x:Name="valRelation" Text="*" TextColor="Red"></Label>
+                                                </StackLayout>
+                                                <Picker   x:Name="pkrRelation"  SelectedIndexChanged="pkrRelation_SelectedIndexChanged" Title="Relation"  SelectedItem="{ Binding Relation }"   BindingContext="{Binding .}">
+                                                    <Picker.Items>
+                                                         <x:String>Self</x:String>
+                                                        <x:String>Wife</x:String>
+                                                        <x:String>Husband</x:String>
+                                                        <x:String>Mother</x:String>
+                                                        <x:String>Father</x:String>
+                                                        <x:String>Son</x:String>
+                                                        <x:String>Daughter</x:String>
+                                                        <x:String>Sister</x:String>
+                                                        <x:String>Brother</x:String>
+                                                        <x:String>Father in Law</x:String>
+                                                        <x:String>Mother In Law</x:String>
+                                                        <x:String>Dependent Child</x:String>
+                                                        <x:String>Infant</x:String>
+                                                        <x:String>Co - Worker</x:String>
+                                                    </Picker.Items>
+                                                </Picker>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblCity" Text="Employee Code"    FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label  Text="*" TextColor="Red" IsVisible="{Binding EmployeeCodeEnablity}"></Label>
+                                                </StackLayout>
+
+                                                <Entry   x:Name="txtEmployeeCode" IsEnabled="False" IsVisible="{Binding EmployeeCodeEnablity, Converter= {Helpers:InverseBoolConverter}}"  Placeholder="Employee Code" Text="{Binding EmployeeCode, Mode=TwoWay}" >
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                    
+                                                </Entry>
+                                                <Entry   Placeholder="Employee Code" Text="{Binding EmployeeCode, Mode=TwoWay}" IsVisible="{Binding EmployeeCodeEnablity}" >
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                </Entry>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label  Text="Seniority Level"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label  Text="*" TextColor="Red" IsVisible="{Binding SeniorityLevelEnablity}"></Label>
+                                                </StackLayout>
+
+
+                                                <Picker x:Name="PickerSeniorityLevel" IsVisible="{Binding SeniorityLevelEnablity, Converter= {Helpers:InverseBoolConverter}}"  IsEnabled="False" SelectedItem="{Binding SeniorityLevel}" Title="Seniority Level">
+                                                        <Picker.Items>
+                                                            <x:String>Junior Level</x:String>
+                                                            <x:String>Middle Level</x:String>
+                                                            <x:String>Senior Level</x:String>
+                                                            <x:String>CXO Level</x:String>
+                                                        </Picker.Items>
+                                                    </Picker>
+                                                <Picker  IsVisible="{Binding SeniorityLevelEnablity}" SelectedItem="{Binding SeniorityLevel}" Title="Seniority Level">
+                                                        <Picker.Items>
+                                                            <x:String>Junior Level</x:String>
+                                                            <x:String>Middle Level</x:String>
+                                                            <x:String>Senior Level</x:String>
+                                                            <x:String>CXO Level</x:String>
+                                                        </Picker.Items>
+                                                    </Picker>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="Address" Text="Phone"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label  Text="*" TextColor="Red" IsVisible="{Binding PhoneEnablity}" ></Label>
+                                                </StackLayout>
+                                                <Label x:Name="lblAddress" Text="Phone"  FontSize="14" FontFamily="Roboto" TextColor="#000" IsVisible="False"/>
+                                                <Entry IsEnabled="False" IsVisible="{Binding PhoneEnablity, Converter= {Helpers:InverseBoolConverter}}"  Keyboard="Telephone" Placeholder="Phone" TextColor="#000" FontSize="14" Text="{Binding Phone, Mode=TwoWay}">
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                </Entry>
+                                                <Entry  x:Name="EntryAddress"  IsVisible="{Binding PhoneEnablity}"  Keyboard="Telephone" Placeholder="Phone" TextColor="#000" FontSize="14" Text="{Binding Phone, Mode=TwoWay}">
+                                                    <Entry.HeightRequest>
+                                                        <OnPlatform x:TypeArguments="x:Double">
+                                                            <On Platform="iOS">30</On>
+                                                            <On Platform="Android">40</On>
+                                                        </OnPlatform>
+                                                    </Entry.HeightRequest>
+                                                </Entry>
+                                                  
+                                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblDoa" Text="Date Of Birth"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label x:Name="valDoa" Text="*" TextColor="Red" IsVisible="{Binding DobEnablity}"></Label>
+                                                </StackLayout>
+                                                <ContentView Grid.Row="0" Grid.Column="1" IsVisible="{Binding DobEnablity, Converter= {Helpers:InverseBoolConverter}}">
+                                                    <DatePicker  IsEnabled="False" TextColor="#000" Date="{Binding DateOfBirth}">
+                                                        <DatePicker.Format>yyyy/MM/dd</DatePicker.Format>0
+                                                    </DatePicker>
+                                                </ContentView>
+                                                <ContentView Grid.Row="0" Grid.Column="1" IsVisible="{Binding DobEnablity}">
+                                                    <DatePicker x:Name="DPDoa" TextColor="#000" Date="{Binding DateOfBirth}" MinimumDate="{Binding AHCMinDate}" MaximumDate="{Binding AHCMaxDate}">
+                                                        <DatePicker.Format>yyyy/MM/dd</DatePicker.Format>
+                                                    </DatePicker>
+                                                </ContentView>
+                                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblEst" Text="Marital Status"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label Text="*" TextColor="Red"></Label>
+                                                </StackLayout>
+                                                <Picker  x:Name="pkrMaritalStatus"  SelectedItem="{Binding MaritalStatus}" Title="Marital Status">
+                                                        <Picker.Items>
+                                                            <x:String>Single</x:String>
+                                                            <x:String>Married</x:String>
+                                                            <x:String>Separated</x:String>
+                                                            <x:String>Divorced</x:String>
+                                                            <x:String>Widowed</x:String>
+                                                        </Picker.Items>
+                                                  </Picker>
+                                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                                            </StackLayout>
+                                            <StackLayout x:Name="slMobileNo" Orientation="Vertical" MinimumHeightRequest="50" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblMob" Text="Gender"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                    <Label x:Name="valMob" Text="*" TextColor="Red" IsVisible="{Binding GenderEnablity}"></Label>
+                                                </StackLayout>
+                                                <Picker  IsEnabled="False"  Title="Gender" SelectedItem="{Binding Gender}" BindingContext="{Binding .}" IsVisible="{Binding GenderEnablity, Converter= {Helpers:InverseBoolConverter}}">
+                                                        <Picker.Items>
+                                                            <x:String>Male</x:String>
+                                                            <x:String>Female</x:String>
+                                                        </Picker.Items>
+                                                    </Picker>
+                                                <Picker  x:Name="pkrGender"   Title="Gender"  IsVisible="{Binding GenderEnablity}" SelectedItem="{Binding Gender}" BindingContext="{Binding .}">
+                                                        <Picker.Items>
+                                                            <x:String>Male</x:String>
+                                                            <x:String>Female</x:String>
+                                                        </Picker.Items>
+                                                    </Picker>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Vertical" MinimumHeightRequest="50" IsVisible="{Binding ErrormessageVisiblity}" >
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                    <Label x:Name="lblError" Text="{Binding ErrorMessage}" TextColor="Red"    FontSize="16" FontFamily="Roboto"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal">
+                                                <Button x:Name="btnRemove"  Clicked="btnRemove_Clicked" IsVisible="{Binding RemoveButtonVisiblity}"  CommandParameter="{Binding .}"  FontSize="12"  HorizontalOptions="Start" HeightRequest="50" Text="X  Remove" TextColor="OrangeRed" BackgroundColor="Transparent"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView Color="White" HeightRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <StackLayout x:Name="stackButton" Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <Button x:Name="btnAddMore" Clicked="btnAddMore_Clicked"  FontSize="14"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="+ Add Patient" TextColor="OrangeRed" BackgroundColor="Transparent"/>
+                            <Button x:Name="btnSave"  Clicked="btnSave_Clicked" FontSize="14" BackgroundColor="OrangeRed" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Submit"/>
+                        </StackLayout>
+                    </ListView.Footer>
+
+                </ListView>
+                   
+                <!--</StackLayout>-->
+            </StackLayout>
+ 
+
+            <!--<StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                    <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                        -->
+            <!--<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">-->
+
+            <!--  <StackLayout Orientation="Vertical">
+                          <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                <Label x:Name="lblPaitentName" Text="Existing Patient" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            </StackLayout>-->
+            <!--<Picker x:Name="PickerPatient" Title="Select a Patient" HorizontalOptions="FillAndExpand" SelectedItem="{Binding MemberId}" ItemsSource="{Binding MemberId}" SelectedIndexChanged="PickerPatient_SelectedIndexChanged" ItemDisplayBinding="{Binding Pateint}"></Picker>-->
+            <!--
+                            <Label x:Name="lblPaitentName" Text="Existing Patient" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Picker x:Name="pkrExistingPatients" Title="Select from Existing Patient" HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding Name}"></Picker>
+                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--</StackLayout>-->
+            <!--
+                    <ListView x:Name="lvHealthCheckups" HasUnevenRows="True" VerticalOptions="FillAndExpand" Margin="0,10,0,0">
+                        <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <ViewCell.View>
+                                                <StackLayout x:Name="frameInsuredDetails" BackgroundColor="White" Padding="10,0,10,10">
+                                                    <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0"  >
+                                                       
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblPolicyNo" Text="Name" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                            </StackLayout>
+                                                            <Entry x:Name="txtName"  TextColor="#000" Text="{Binding Name}" ></Entry>
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblRelation" Text="Relation"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valRelation" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                            -->
+            <!--<Picker x:Name="PickerState" Title="Select State" ItemsSource="{Binding StateId}" SelectedItem="{Binding StateName, Mode=TwoWay}" HorizontalOptions="FillAndExpand" SelectedIndexChanged="PickerState_SelectedIndexChanged" ItemDisplayBinding="{Binding State_Name}"></Picker>-->
+            <!--
+                                                        <Picker x:Name="pkrRelation" Title="Relation" ItemsSource="{Binding lstRelations,Mode=TwoWay}" ItemDisplayBinding="{Binding Name}"></Picker>
+                                                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblCity" Text="Employee Code"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valCity" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                            <Entry x:Name="txtEmployeeCode" Placeholder="Employee Code" Text="{Binding EmployeeCode}"></Entry>
+                                                            -->
+            <!--<Picker x:Name="PickerCity" Title="Select City" ItemsSource="{Binding CityId}" SelectedIndexChanged="PickerCity_SelectedIndexChanged" HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding CityName}"></Picker>-->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblHospitalName" Text="Seniority Level"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valHospitalName" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                            -->
+            <!--<Picker x:Name="PickerHospital" Title="Select Hospital" ItemsSource="{Binding NspId}" SelectedIndexChanged="PickerHospital_SelectedIndexChanged"  HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding Name}" IsVisible="False"></Picker>-->
+            <!--
+                                                    <Picker x:Name="PickerSeniorityLevel" Title="Seniority Level" ItemsSource="{Binding lstSeniority,Mode=TwoWay}" ItemDisplayBinding="{Binding Name}"></Picker>
+                                                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="Address" Text="Phone"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valAddress" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                            <Label x:Name="lblAddress" Text="Phone" FontSize="14" FontFamily="Roboto" TextColor="#000" IsVisible="False"/>
+                                                            <Entry x:Name="EntryAddress" Text="{Binding Phone}" PlaceholderColor = "White" Placeholder="Phone" TextColor="#000" FontSize="14" ></Entry>
+                                                            
+                                                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblDoa" Text="Date Of Birth"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valDoa" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                        <DatePicker x:Name="DPDoa" TextColor="#000" Date="{Binding DateOfBirth}" >
+                                                                <DatePicker.Format>dd/MMM/yyyy</DatePicker.Format>
+                                                            </DatePicker>
+                                                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+
+                                                        <StackLayout Orientation="Vertical" MinimumHeightRequest="50">
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblEst" Text="Marital Status"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valEst" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                    <Picker x:Name="pkrMaritalStatus" Title="Marital Status" ItemsSource="{Binding lstMaritalStatus,Mode=TwoWay}" ItemDisplayBinding="{Binding Name}"></Picker>
+                                                            -->
+            <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+            <!--
+                                                        </StackLayout>
+                                                        <StackLayout x:Name="slMobileNo" Orientation="Vertical" MinimumHeightRequest="50" >
+                                                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                                                <Label x:Name="lblMob" Text="Gender"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                                                <Label x:Name="valMob" Text="*" TextColor="Red"></Label>
+                                                            </StackLayout>
+                                                    <Picker x:Name="pkrGender" Title="Gender" ItemsSource="{Binding lstGender,Mode=TwoWay}" ItemDisplayBinding="{Binding Name}" ></Picker>
+                                                        </StackLayout>
+                                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" MinimumHeightRequest="50">
+                                                    <Button Text="Remove" Clicked="Button_Clicked">    </Button>
+                                                    </StackLayout>
+                                                    
+                                              
+                                            </StackLayout>
+                                                </StackLayout>
+                                            </ViewCell.View>
+                                        </ViewCell>
+                                        
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+
+                     
+                                
+                            </ListView>
+                        <StackLayout x:Name="stackButton" Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                            <Button x:Name="btnSave"  Clicked="Button_Clicked" FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Save"/>
+                            <Button x:Name="btnAddMore"  FontSize="14"  TextColor="#FFF"  HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Add More" Clicked="btnAddMore_Clicked"/>
+                            <Button x:Name="btnBack"  FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF" HorizontalOptions="FillAndExpand" HeightRequest="50" Text="Back" IsVisible="False" />
+                        </StackLayout>
+
+                    -->
+            <!--</StackLayout>-->
+            <!--
+                    </StackLayout>
+             
+            </StackLayout>-->
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

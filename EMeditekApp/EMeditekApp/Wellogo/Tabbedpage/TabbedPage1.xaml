@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.Tabbedpage.TabbedPage1"
+            xmlns:pages="clr-namespace:EMeditekApp.Wellogo;assembly=EMeditekApp" Title="Home">
+    <!--Pages can be added as references or inline-->
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="bellicon.png" Text=" " Clicked="MenuItem1_Clicked" Priority="0" />
+    </TabbedPage.ToolbarItems>
+    <pages:HealthServices Title="Home" Icon="user.png" />
+    <pages:Home Title="Health Services" Icon="heart.png"></pages:Home>
+    <pages:SocialNew Title="Leaderboard" Icon="social.png"></pages:SocialNew>
+</TabbedPage>
+    
+    

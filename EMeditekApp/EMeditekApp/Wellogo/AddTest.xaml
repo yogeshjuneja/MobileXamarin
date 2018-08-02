@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.AddTest"
+              xmlns:fe = "clr-namespace:XLabs.Forms.Controls;assembly:XLabs.Forms" Title="Add Tests"
+              xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize">
+    <ContentView x:Name="placeholder">
+        <AbsoluteLayout BackgroundColor="#edecee">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"   BackgroundColor="#F6F6F6"  >
+                <ScrollView>
+                    <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                        <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                            <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                            <Image Source="cross.png" WidthRequest="30" HeightRequest="30"></Image>
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#edecee" >
+                            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="3,3,3,3">
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="4,2,4,2">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="StartAndExpand">
+                                                <Label Text="Patient Name" HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                            </StackLayout>
+                                            <BoxView Color="#ccc" Margin="0,5,0,5" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                            <!--<ffimageloading:CachedImage Aspect="AspectFill"  WidthRequest="50" HeightRequest="50"  Source="{Binding Source=url}" DownsampleToViewSize="true"></ffimageloading:CachedImage>-->
+                                            <Label x:Name="lblPatientName" Text="" Margin="3" VerticalTextAlignment="Start"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="4,2,4,2">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Delivery Address" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lbl1" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"  Text="State" ></Label>
+                                                    <Picker x:Name="pkrState" WidthRequest="150" ItemDisplayBinding="{Binding name }" SelectedItem="{Binding name,Mode=TwoWay}" ItemsSource="{Binding states}" SelectedIndexChanged="pkrState_SelectedIndexChanged" HorizontalOptions="EndAndExpand" Title="Select State"></Picker>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lbl2" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"   FontSize="Default" Text="City" ></Label>
+                                                    <Picker x:Name="pkrCity"  WidthRequest="150" ItemDisplayBinding="{Binding name}" SelectedItem="{Binding name }" SelectedIndexChanged="pkrCity_SelectedIndexChanged"  Title="Select City" HorizontalOptions="EndAndExpand"></Picker>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lbl3" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand"  FontSize="Default" Text="DC" ></Label>
+                                                    <Picker x:Name="pkrDC"  WidthRequest="150" SelectedIndexChanged="pkrDC_SelectedIndexChanged" ItemDisplayBinding="{Binding name}"  Title="Select DC" HorizontalOptions="EndAndExpand"></Picker>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" x:Name="stkTests"  IsVisible="False" Padding="4,2,4,2">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout  Spacing="0">
+                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                    <Label Text="Test Required" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                                    <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <ListView x:Name="lvTests">
+
+                                                        <ListView.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <ViewCell>
+                                                                    <StackLayout Orientation="Horizontal">
+                                                                        <Label Text="{Binding name}" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+                                                                        <Label Text="{Binding price.price}" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontAttributes="Bold"/>
+                                                                        <Label Text="(INR)" HorizontalOptions="Start" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                                                                        <Switch IsToggled="{Binding checked}" HorizontalOptions="EndAndExpand"  Toggled="Switch_Toggled" BindingContext="{Binding .}"></Switch>
+                                                                    </StackLayout>
+                                                                </ViewCell>
+                                                            </DataTemplate>
+                                                        </ListView.ItemTemplate>
+                                                    </ListView>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+
+
+
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="4,2,4,2">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Choose Appointment Date" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lbl26" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand" Text="Date" ></Label>
+                                                    <DatePicker x:Name="DPDoa" TextColor="#000" HorizontalOptions="EndAndExpand">
+                                                        <DatePicker.Format>dd/MMM/yyyy</DatePicker.Format>
+                                                    </DatePicker>
+                                                </StackLayout>
+
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lblTime" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand" Text="Time" ></Label>
+                                                    <TimePicker x:Name="TPAppointment" TextColor="#000" HorizontalOptions="EndAndExpand"></TimePicker>
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="4,2,4,2">
+                                    <Frame BackgroundColor="#fff" HasShadow="True">
+                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Label Text="Payment Info" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" FontSize="Small" TextColor="Black"></Label>
+                                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lblpay" HorizontalTextAlignment="Start"  HorizontalOptions="StartAndExpand"  Text="Payable Amount" ></Label>
+                                                    <icons:IconImage Icon="fa-inr" IconColor="Red"   WidthRequest="15"  HeightRequest="15" ></icons:IconImage>
+                                                    <Label x:Name="lblAmount" HorizontalTextAlignment="End" Text="0" TextColor="Red" FontSize="Large"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+
+
+
+
+
+                                <StackLayout BackgroundColor="#F6F6F6">
+                                    <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                                        <Button x:Name="btnNext"  Clicked="btnNext_Clicked" FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand"  HeightRequest="50" Text="Proceed"/>
+                                        <Button x:Name="btnPrevious" Clicked="btnPrevious_Clicked"  IsVisible="False" FontSize="14" BackgroundColor="#2196f2" TextColor="#FFF"  HorizontalOptions="FillAndExpand"  HeightRequest="50" Text="Previous Patient"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large"  TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentView>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.RedeemDeal" Title="Reedem a deal">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" x:Name="MainStack" HorizontalOptions="FillAndExpand" Padding="0,0,0,0" >
+                <StackLayout Padding="15,10,10,15">
+                    <Grid x:Name="LoginGrid" RowSpacing="10" ColumnSpacing="10">
+
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

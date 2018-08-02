@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HowToEarnPoints" Title="How to earn Koins">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView  x:Name="lstEarn" SeparatorVisibility="Default"  BackgroundColor="Transparent"
+                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                            HasUnevenRows="True">
+
+                <ListView.Header>
+                    <StackLayout>
+                        <Label Text="You will be awarded Koins as per the list below. These Koins can be redeemed for exciting deals"></Label>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="0,0,0,5" Orientation="Horizontal" Padding="5">
+                                <Label Text="{Binding name}" FontSize="Medium" HorizontalOptions="StartAndExpand" TextColor="Black" Margin="3,0,0,0"/>
+                                <Label Text="{Binding pivot.points}"  FontSize="Default" HorizontalOptions="End" Margin="3,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

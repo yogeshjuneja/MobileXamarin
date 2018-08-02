@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:EMeditekApp.Custom_Controls"
+             x:Class="EMeditekApp.SignInPage"
+             Title="Sign Up"
+             >
+    <!--BackgroundImage="Splash.jpg"-->
+    <ContentPage.Content>
+
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--<StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" BackgroundColor="#EBEBEB" ></StackLayout>-->
+            <!--Source="Splash.jpg"-->
+            <Image x:Name="mainbackgroundimage" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" Source="" Opacity=".7" Aspect="AspectFill"/>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"></StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.7"></StackLayout>
+            <!--<StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#fff" VerticalOptions="StartAndExpand" Margin="0,0 ,0,0">
+                <Image Source="emeditek.gif" Aspect="AspectFit" HeightRequest="50" />
+      </StackLayout>-->
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="Center" >
+                <StackLayout Spacing="0" Padding="20,50,20,0" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="65"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="0">
+                            <Frame VerticalOptions="FillAndExpand" HasShadow="True" HorizontalOptions="FillAndExpand" BackgroundColor="#fff" Opacity="0.9">
+                                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                                    <!--VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand"-->
+                                    <Frame HorizontalOptions="FillAndExpand" HasShadow="True" OutlineColor="Red" BackgroundColor="#f2f2f2">
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <Label x:Name="lblUserLogin" HorizontalOptions="CenterAndExpand" Text="User Login" FontAttributes="Bold" TextColor="#000" FontSize="16" ></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                    <StackLayout Margin="0" Spacing="0" Padding="0,20,0,0">
+                                        <!--<Picker x:Name="pkrLoginType" Title="Login Type" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" SelectedIndexChanged="pkrLoginType_SelectedIndexChanged" TextColor="#000" ItemDisplayBinding="{Binding nvrTypeName}"  ItemsSource="{Binding intClassID}"></Picker>-->
+                                        <Entry x:Name="txtUserId" Text="" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Placeholder="Username" PlaceholderColor = "#c5c5c5" TextColor="#000"></Entry>
+                                        <Entry x:Name="txtPassword" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Text="" PlaceholderColor = "#c5c5c5" TextColor="#000"  Placeholder = "Password" IsPassword="True"></Entry>
+                                    </StackLayout>
+                                    <!--<StackLayout Margin="0" Spacing="0" Padding="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout Margin="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" >
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                                </StackLayout.GestureRecognizers>
+                                                <Label x:Name="btnSignUp" Text="Sign Up" FontSize="14" TextColor="Blue"  HorizontalOptions="FillAndExpand"></Label>
+                                            </StackLayout>
+                                            <StackLayout Margin="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer x:Name="forgotpassword" Tapped="forgotpassword_Tapped"></TapGestureRecognizer>
+                                                </StackLayout.GestureRecognizers>
+                                                <Label x:Name="btnForgotPassword" Text="Forget Password" FontSize="14" TextColor="Blue" HorizontalOptions="EndAndExpand"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>-->
+                                    <!--Clicked="OnLoginClicked"-->
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Grid.Row="1">
+                            <Button x:Name="btnLogin" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="Go" TextColor="#FFF" HeightRequest="65" Clicked="OnLoginClicked" FontFamily="Roboto" BackgroundColor="#4588d9" BorderRadius="6" ></Button>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+                <StackLayout HorizontalOptions="End" Padding="0,0,40,0" VerticalOptions="EndAndExpand" IsVisible="False">
+                    <Button x:Name="btnContactUs" Text="Contact Us :-" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" HeightRequest="40" BackgroundColor="#082b29" TextColor="White"></Button>
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+   AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+ IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+
+        <!--<Grid x:Name="LoginGrid" RowSpacing="1" ColumnSpacing="1">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="110" />
+          <RowDefinition Height="50" />
+          <RowDefinition Height="50" />
+          <RowDefinition Height="50" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image Source="emeditek.jpg" Aspect="AspectFit" Grid.Row="0" Grid.ColumnSpan="4" Margin="10,00,00,0" HorizontalOptions="StartAndExpand" />
+        <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" >
+          <Entry x:Name="txtUserId" Text="" Placeholder="User ID" FontSize="12" TextColor="Black"></Entry>
+        </StackLayout>
+        <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3">
+          <Entry x:Name="txtPassword" Text="" IsPassword="true" Placeholder="Password" FontSize="12" TextColor="Black" ></Entry>
+        </StackLayout>
+        <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand"  Grid.Row="2" Grid.Column="3">
+          <Button x:Name="btnLogin" Text="Go" FontSize="12" Clicked="OnLoginClicked" TextColor="Black"></Button>
+        </StackLayout>
+        <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand"  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+          <Button x:Name="btnSignUp" Text="Sign Up" FontSize="12" TextColor="Black"></Button>
+        </StackLayout>
+        <StackLayout Margin="10,00,10,0" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+          <Button x:Name="btnForgotPassword" Text="Forgot Password" FontSize="12" TextColor="Black" ></Button>
+        </StackLayout>
+        <StackLayout Margin="10,00,10,10" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4">
+          <Button x:Name="btnContactUs" Text="Contact Us :-" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" TextColor="Black"></Button>
+        </StackLayout>
+      </Grid>-->
+
+        <!--<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            -->
+        <!--<Image AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+            Source="bgl.gif" Aspect="AspectFill"/>-->
+        <!--
+          <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" BackgroundColor="#EBEBEB" ></StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.7"></StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="StartAndExpand" Margin="0,5,0,0">
+                <Image Source="emeditek.gif" Aspect="AspectFit" />
+            </StackLayout>
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="CenterAndExpand" >
+                <StackLayout Margin="20" Padding="10"  >
+                    <Entry x:Name="txtUserId" Text="" Placeholder="User ID" PlaceholderColor = "#fff" 
+                                 TextColor="White"
+                                 ></Entry>
+                    <Entry x:Name="txtPassword" Text="" PlaceholderColor = "#fff" 
+                                 TextColor="White"  Placeholder = "Password" IsPassword="True"
+                                 ></Entry>
+                </StackLayout>
+                <StackLayout Margin="20,0,20,0" >
+                    <Button x:Name="btnLogin" FontSize="14" FontAttributes="Bold"  Text="Go" TextColor="#FFF" HeightRequest="65"  Clicked="OnLoginClicked" FontFamily="Roboto" BackgroundColor="#F7BA00" BorderRadius="6" ></Button>
+                </StackLayout>
+                -->
+        <!--<StackLayout Padding="0,0,30,0"  HorizontalOptions="EndAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </StackLayout.GestureRecognizers>
+                    <Label x:Name="LnkForgetPassword" FontSize="16"   Text="ForgetPassword" TextColor="#FFF"   ></Label>
+                </StackLayout>-->
+        <!--
+                <StackLayout Margin="22,0,20,0" Spacing="0" Padding="0">
+                    -->
+        <!--<Grid x:Name="LoginGrid" RowSpacing="1" ColumnSpacing="1">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>-->
+        <!--
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Margin="0,0,0,0" HorizontalOptions="FillAndExpand" Spacing="0" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                            <Label x:Name="btnSignUp" Text="Sign Up" FontSize="14" TextColor="#FFF"  HorizontalOptions="StartAndExpand"></Label>
+                            -->
+        <!--<Button x:Name="btnSignUp" Text="Sign Up" FontSize="10" TextColor="White"  FontFamily="Roboto" BackgroundColor="#082b29" BorderRadius="10" HeightRequest="40"></Button>-->
+        <!--
+                        </StackLayout>
+                     
+                        <StackLayout Margin="0,0,0,0" HorizontalOptions="FillAndExpand" Spacing="0">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        <Label x:Name="btnForgotPassword" Text="Forget Password" FontSize="14" TextColor="#FFF" HorizontalOptions="EndAndExpand"></Label>
+                            -->
+        <!--<Button x:Name="btnForgotPassword" Text="Forgot Password" FontSize="12" TextColor="White"  FontFamily="Roboto" BackgroundColor="#082b29" HeightRequest="40" BorderRadius="10" ></Button>-->
+        <!--
+                        </StackLayout>
+                    </StackLayout>
+                    -->
+        <!--</Grid>-->
+        <!--
+                </StackLayout>
+                <StackLayout   HorizontalOptions="End" VerticalOptions="EndAndExpand">
+                    <Button x:Name="btnContactUs" Text="Contact Us :-" FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" HeightRequest="40" BackgroundColor="#082b29" TextColor="White"></Button>
+                </StackLayout>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+         AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+   IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>-->
+
+    </ContentPage.Content>
+</ContentPage>

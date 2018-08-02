@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.BlogDetail">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#fff">
+
+            <StackLayout  Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+                <!--<StackLayout Orientation="Vertical" BackgroundColor="#fff" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">-->
+                <ScrollView>
+                    <StackLayout x:Name="MainStack" VerticalOptions="FillAndExpand" BackgroundColor="White" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                    <Frame Padding="7" HasShadow="True" IsClippedToBounds="True" CornerRadius="5" BackgroundColor="White">
+                        <StackLayout>
+ 
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsClippedToBounds="True">
+                            <Image  x:Name="imgBlogImage"   HorizontalOptions="FillAndExpand" HeightRequest="200" WidthRequest="300" ></Image>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" VerticalOptions="FillAndExpand">
+                                <Label  x:Name="lblTitle"  FontSize="20"  FontFamily="Roboto" TextColor="#000" />
+                                <Label  x:Name="lblSubtititle"  FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                    <Image Source="wallwatch.png" HeightRequest="15" WidthRequest="15"></Image>
+                                    <Label   x:Name="lblDate" HorizontalOptions="Start"  FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,0">
+
+                            <Label   x:Name="lblContent"  FontSize="20"  FontFamily="Roboto" TextColor="#000" />
+                            <Label  Text="CATEGORIES"  HorizontalOptions="Start"  FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                            <StackLayout Orientation="Horizontal" x:Name="stkCategoies" HorizontalOptions="StartAndExpand">
+                               
+                            </StackLayout>
+                            <Label  Text="TAGS"  HorizontalOptions="Start"  FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                            <StackLayout Orientation="Horizontal" x:Name="stkTAgs" HorizontalOptions="StartAndExpand"  Margin="0">
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                    </Frame>
+                    </StackLayout>
+                </ScrollView>
+ 
+            </StackLayout>
+
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

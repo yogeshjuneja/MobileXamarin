@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.TalkToDoctor" Title="Talk To Doctor">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#edecee">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                    <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                        <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                       
+                                            <StackLayout Orientation="Vertical" BackgroundColor="#fff" MinimumHeightRequest="30" Margin="0,10,0,10">
+                                                <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,10,5">
+                                                    <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                                        <Frame BackgroundColor="#fff">
+                                                            <StackLayout HorizontalOptions="FillAndExpand">
+                                                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                                             <Image Source="doctorsuitcase.png" HeightRequest="150" WidthRequest="150"></Image>
+                                                                </StackLayout>
+                                                                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                                                <Label  x:Name="CardNo" HorizontalTextAlignment="Center" Text="Connect to doctors within minutes,anytime,anywhere." FontSize="20" FontFamily="Roboto" TextColor="#000" />
+                                                <Label   x:Name="txtValue" HorizontalTextAlignment="Center" Text="24x7" FontSize="16" FontFamily="Roboto" TextColor="#000" />
+                                                <Label   x:Name="txt" HorizontalTextAlignment="Center" Text="Speak to doctors via voice call, video call or text." FontSize="18" FontFamily="Roboto" TextColor="#000" />
+                                            </StackLayout>
+
+                                                                <!--<Label  x:Name="txttxt" Text="Completed" FontSize="14" FontFamily="Roboto" TextColor="#000" />-->
+                                                                <StackLayout HorizontalOptions="FillAndExpand">
+                                                <Button Text="Download Now" BackgroundColor="OrangeRed" Clicked="Button_Clicked"></Button>
+                                                                     
+                                                                </StackLayout>
+                                                            </StackLayout>
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+  
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.Home"
+              xmlns:controls="clr-namespace:XFShapeView;assembly=XFShapeView"
+             xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize" Title="DashBoard">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#F6F6F6">
+            <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+                <ListView x:Name="lstWellogo" SeparatorVisibility="None" IsPullToRefreshEnabled="True"   Refreshing="lstWellogo_Refreshing" HasUnevenRows="True" HorizontalOptions="FillAndExpand" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="8,5,8,5">
+                                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                                    <Frame BackgroundColor="#fff" HasShadow="True" Padding="13">
+                                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                                          <Image Source="{Binding Image}" WidthRequest="30" HeightRequest="30"></Image>
+                                                            <!--<icons:IconImage Icon="{Binding Image}" IconColor="{Binding Color}"   WidthRequest="30"  HeightRequest="30" ></icons:IconImage>-->
+                                                            <!--<Image Source="download.png" WidthRequest="40" HeightRequest="40"></Image>-->
+                                                            <Label x:Name="lblName" Text="{Binding Name}" Margin="8,8,8,8" VerticalOptions="Center" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                                                            <StackLayout.GestureRecognizers>
+                                                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Name" CommandParameter="{Binding Page}"></TapGestureRecognizer>
+                                                            </StackLayout.GestureRecognizers>
+                                                            <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Orientation="Horizontal">
+                                                                <Image Source="iicon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"  HorizontalOptions="EndAndExpand"></Image>
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_icon" CommandParameter="{Binding Name_Description}" ></TapGestureRecognizer>
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+                                            </StackLayout>
+                                       
+                                    <!--<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                        <StackLayout Orientation="Vertical" BackgroundColor="#fff" MinimumHeightRequest="30" Margin="10,0,10,10">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,10,5">
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" HeightRequest="50">
+                                                    <icons:IconImage Icon="{Binding Image}" IconColor="{Binding Color}"   WidthRequest="30"  HeightRequest="30" ></icons:IconImage>
+                                                    --><!--<Image Source="download.png" WidthRequest="40" HeightRequest="40"></Image>--><!--
+                                                        <Label x:Name="lblName" Text="{Binding Name}" Margin="8,8,8,8" VerticalOptions="Center" FontSize="14" FontFamily="Roboto" TextColor="#000"/>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Name" CommandParameter="{Binding Page}"></TapGestureRecognizer>
+                                                        </StackLayout.GestureRecognizers>
+                                                   <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Orientation="Horizontal">
+                                                        <Image Source="iicon.png" WidthRequest="30" HeightRequest="30" VerticalOptions="Center"  HorizontalOptions="EndAndExpand"></Image>
+                                                        <StackLayout.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_icon" CommandParameter="{Binding Name_Description}" ></TapGestureRecognizer>
+                                                        </StackLayout.GestureRecognizers>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>-->
+                                    
+                                    
+                                    
+                                    
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

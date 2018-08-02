@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.HealthRiskAssesment" Title="Health Risk Assessment"  xmlns:icons="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize">
+    <AbsoluteLayout BackgroundColor="#fff">
+        <StackLayout Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand"  >
+            <StackLayout Margin="5" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand" >
+                <StackLayout x:Name="stackNoRecord" HorizontalOptions="Center" Margin="20" IsVisible="False" >
+                    <Label Text="No Record Found" FontSize="16" HorizontalOptions="Center"></Label>
+                </StackLayout>
+
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                <ListView x:Name="lstHealthRiskAssesment" HasUnevenRows="True" HorizontalOptions="FillAndExpand">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                        <StackLayout Orientation="Vertical" BackgroundColor="#fff" MinimumHeightRequest="30" Margin="0,2,0,2">
+                                            <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10,5,10,5">
+                                                <StackLayout Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                                                    <Frame BackgroundColor="#edecee">
+                                                        <StackLayout HorizontalOptions="FillAndExpand">
+                                                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                                                <icons:IconImage Icon="{Binding icon}" IconColor="{Binding Color}"   WidthRequest="25"  HeightRequest="25" ></icons:IconImage>
+                                                                <Label  x:Name="CardNo" Text="{Binding CreatedAt,StringFormat='{0:dd MMMM, yyyy}', Mode=TwoWay}" FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                                                            </StackLayout>
+                                                            <StackLayout HorizontalOptions="CenterAndExpand">
+
+                                                                <Label   x:Name="txtValue" Text="{Binding Status}" FontSize="14" FontFamily="Roboto" TextColor="#000" />
+                                                            </StackLayout>
+
+                                                            <!--<Label  x:Name="txttxt" Text="Completed" FontSize="14" FontFamily="Roboto" TextColor="#000" />-->
+
+
+                                                            <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                                            <StackLayout Orientation="Horizontal">
+                                                                
+                                                            <StackLayout Margin="50,0,50,0" Padding="0" HorizontalOptions="End" >
+
+                                                                <Label   Text="Edit"  FontSize="14" HorizontalOptions="End" HorizontalTextAlignment="End"  FontFamily="Roboto" TextColor="OrangeRed" />
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding ID}"></TapGestureRecognizer>
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                                
+                                                                
+                                                                
+                                                                <StackLayout HorizontalOptions="End" Margin="50,0,50,0" >
+                                                                <Label   Text="Report" HorizontalOptions="End" FontSize="14"  FontFamily="Roboto" TextColor="OrangeRed" />
+                                                                <StackLayout.GestureRecognizers>
+                                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" CommandParameter="{Binding ID}"></TapGestureRecognizer>
+                                                                </StackLayout.GestureRecognizers>
+                                                            </StackLayout>
+                                                            </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                            <!--<StackLayout HorizontalOptions="FillAndExpand">
+                                                                <BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand"></BoxView>
+                                                                <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                                    </Grid.ColumnDefinitions>
+                                                                    <Grid.RowDefinitions>
+                                                                        <RowDefinition Height="*" />
+                                                                    </Grid.RowDefinitions>
+                                                                    <StackLayout Margin="0" Padding="0" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center">
+                                                                        
+                                                                    <Label   Text="Edit"  FontSize="14" HorizontalOptions="Center"  FontFamily="Roboto" TextColor="OrangeRed" />
+                                                                        <StackLayout.GestureRecognizers>
+                                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter="{Binding ID}"></TapGestureRecognizer>
+                                                                        </StackLayout.GestureRecognizers>
+                                                                    </StackLayout>
+                                                                    <StackLayout HorizontalOptions="Center" Grid.Row="0" Grid.Column="1">
+                                                                    <Label   Text="Report" HorizontalOptions="Center" FontSize="14"  FontFamily="Roboto" TextColor="OrangeRed" />
+                                                                        <StackLayout.GestureRecognizers>
+                                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" CommandParameter="{Binding ID}"></TapGestureRecognizer>
+                                                                        </StackLayout.GestureRecognizers>
+                                                                    </StackLayout>
+                                                                </Grid>
+                                                            </StackLayout>-->
+                                                        </StackLayout>
+                                                    </Frame>
+                            </StackLayout>
+                                                 </StackLayout>
+                                        </StackLayout>
+
+                                    </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+
+                                </ListView>
+
+
+
+
+
+                           
+                       
+                  
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

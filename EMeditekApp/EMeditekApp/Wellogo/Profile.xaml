@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EMeditekApp.Wellogo.Profile"
+              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="Profile">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="#F6F6F6" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" VerticalOptions="FillAndExpand">
+                <ScrollView>
+                    <StackLayout x:Name="frameInsuredDetails"  BackgroundColor="White" Padding="10,0,10,10" Margin="0,10,0,0">
+
+                        <StackLayout x:Name = "profilePhoto" VerticalOptions ="Center" HorizontalOptions ="CenterAndExpand" Margin ="0,10,0,10">
+                            <!-- <Button Text = "Photo" HeightRequest =" 120" WidthRequest ="120" BorderRadius="60" BackgroundColor ="Transparent" BorderWidth= "2" BorderColor ="Black" ></Button> -->
+                            <Image  WidthRequest ="120"  Aspect="AspectFill" HeightRequest = "120" x:Name ="ImgUserImage"></Image>
+                            <Button TextColor = "White" Text ="Change" BorderRadius = "3" BackgroundColor ="#f44337"  HeightRequest ="35" Clicked="Button_Clicked"  ></Button>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="0,0,0,0"  >
+                            <StackLayout Orientation="Vertical"  >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblName" Text="Name" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+                                </StackLayout>
+                                <Entry x:Name="txtName"  TextColor="#000" Placeholder="Enter Name"></Entry>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblEmail" Text="Email" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+                                </StackLayout>
+                                <Entry x:Name="txtEmail" Keyboard="Email" IsEnabled="False"  TextColor="#000"></Entry>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"  >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblPhone" Text="Phone"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+                                </StackLayout>
+                                <Entry x:Name="txtPhone" Keyboard="Numeric"></Entry>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblDesignation" Text="Designation"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <Entry x:Name="txtDesignation" Placeholder="Designation" ></Entry>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblDob" Text="Date Of Birth"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+
+                                </StackLayout>
+                                <DatePicker x:Name="txtDob" TextColor="#000" >
+                                    <DatePicker.Format>dd-MMM-yyyy</DatePicker.Format>
+                                </DatePicker>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblGender" Text="Gender"  FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+                                </StackLayout>
+
+                                <Picker x:Name="pkrGender" Title="Gender"  ItemDisplayBinding="{Binding Name}"  ></Picker>
+                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblBG" Text="Blood Group"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red"  IsVisible="False"></Label>
+
+                                </StackLayout>
+                                <Picker x:Name="pkrBloodGroup" Title="Blood Group">
+                                    <Picker.Items>
+                                        <x:String>A+</x:String>
+                                        <x:String>A-</x:String>
+                                        <x:String>B+</x:String>
+                                        <x:String>B-</x:String>
+                                        <x:String>O+</x:String>
+                                        <x:String>O-</x:String>
+                                        <x:String>AB+</x:String>
+                                        <x:String>AB-</x:String>
+                                        <x:String>HH</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" >
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblseniority" Text="Seniority Level"    FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" ></Label>
+
+                                </StackLayout>
+                                <Picker x:Name="pkrseniorityLevel" ItemDisplayBinding="{Binding Name}"  Title="Seniority Level">
+                                </Picker>
+                                <!--<BoxView Color="#ccc" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="0,5,0,0"></BoxView>-->
+                            </StackLayout>
+                            
+                            <StackLayout x:Name="slMobileNo" Orientation="Vertical" MinimumHeightRequest="50" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblMob" Text="ID"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                    <Label  Text="*" TextColor="Red" IsVisible="False" ></Label>
+                                </StackLayout>
+                                <Entry Placeholder="ID" x:Name="txtId"></Entry>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical" MinimumHeightRequest="50" >
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblemergency" Text="Emergency Number"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                </StackLayout>
+                                <Entry Placeholder="Enter Emergency Number" TextChanged="txtEmergencyNumber_TextChanged" x:Name="txtEmergencyNumber" Keyboard="Numeric"></Entry>
+                            </StackLayout>
+
+
+
+                            <StackLayout Orientation="Vertical" MinimumHeightRequest="50" >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" MinimumHeightRequest="50">
+                                    <Label x:Name="lblerrorheader"     FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                </StackLayout>
+                                <Label x:Name="lblError" ></Label>
+                            </StackLayout>
+
+                        </StackLayout>
+                        <BoxView Color="White" HeightRequest="10" HorizontalOptions="FillAndExpand"></BoxView>
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+ 
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True" IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Loading......"></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
